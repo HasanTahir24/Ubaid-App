@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-News_Feed-News_FeedUITests/Pods-News_Feed-News_FeedUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/MobilePlayer/MobilePlayer.framework
+${BUILT_PRODUCTS_DIR}/Player/Player.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/ZKProgressHUD/ZKProgressHUD.framework

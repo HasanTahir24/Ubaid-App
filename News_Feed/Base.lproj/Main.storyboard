@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o12-pf-Tkh">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="sQl-dk-l2q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o12-pf-Tkh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uuo-eG-yNi">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.64321035146713257" green="0.2751065194606781" blue="0.27824732661247253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ykk-nY-NVl" kind="relationship" relationship="rootViewController" id="LP1-WS-J1U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FtU-eP-feD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.799999999999997" y="783.99014778325125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SoQ-2L-4Lp">
+            <objects>
+                <viewController id="ykk-nY-NVl" customClass="ViewController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hdQ-0S-PPg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gDK-fg-Mcc">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StroiesCell" rowHeight="100" id="sMU-HT-Y5R" customClass="StoriesCell" customModule="News_Feed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sMU-HT-Y5R" id="qhI-eN-Aby">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VWM-kA-sXO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qbI-lA-jjR">
+                                                        <size key="itemSize" width="80" height="80"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="CEM-CA-80X" customClass="CollectionViewCell" customModule="News_Feed" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="8.6666666666666661" width="80" height="80"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ubipro" translatesAutoresizingMaskIntoConstraints="NO" id="qxi-DW-TJT" customClass="Roundimage" customModule="News_Feed" customModuleProvider="target">
+                                                                        <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="60" id="6mx-ev-dID"/>
+                                                                            <constraint firstAttribute="width" constant="60" id="uu2-Nq-iyp"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="30"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjC-2p-TXd">
+                                                                        <rect key="frame" x="0.0" y="64" width="80" height="13"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="11"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </view>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="YjC-2p-TXd" secondAttribute="trailing" id="5Z9-1o-Xcl"/>
+                                                                <constraint firstItem="YjC-2p-TXd" firstAttribute="leading" secondItem="CEM-CA-80X" secondAttribute="leading" id="AXy-sm-1di"/>
+                                                                <constraint firstAttribute="bottom" secondItem="YjC-2p-TXd" secondAttribute="bottom" constant="3" id="C0G-0s-GUk"/>
+                                                                <constraint firstItem="qxi-DW-TJT" firstAttribute="centerX" secondItem="CEM-CA-80X" secondAttribute="centerX" id="SgY-dY-Sh5"/>
+                                                                <constraint firstItem="qxi-DW-TJT" firstAttribute="top" secondItem="CEM-CA-80X" secondAttribute="top" id="p8r-Yi-95Z"/>
+                                                            </constraints>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="VWM-kA-sXO" secondAttribute="bottom" constant="3" id="QJ9-Rl-PGd"/>
+                                                <constraint firstAttribute="trailing" secondItem="VWM-kA-sXO" secondAttribute="trailing" id="dR8-pJ-Ptl"/>
+                                                <constraint firstItem="VWM-kA-sXO" firstAttribute="top" secondItem="qhI-eN-Aby" secondAttribute="top" id="s8r-H0-6F1"/>
+                                                <constraint firstItem="VWM-kA-sXO" firstAttribute="leading" secondItem="qhI-eN-Aby" secondAttribute="leading" id="zy7-6X-VN9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="VWM-kA-sXO" id="sit-cb-BW6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ykk-nY-NVl" id="VfS-ZH-F62"/>
+                                    <outlet property="delegate" destination="ykk-nY-NVl" id="Jua-2d-scT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gDK-fg-Mcc" secondAttribute="bottom" id="5Uh-ow-kZp"/>
+                            <constraint firstItem="gDK-fg-Mcc" firstAttribute="leading" secondItem="XKd-e0-mw2" secondAttribute="leading" id="jIp-PB-XwD"/>
+                            <constraint firstItem="gDK-fg-Mcc" firstAttribute="trailing" secondItem="XKd-e0-mw2" secondAttribute="trailing" id="vRA-u3-NHY"/>
+                            <constraint firstItem="gDK-fg-Mcc" firstAttribute="top" secondItem="XKd-e0-mw2" secondAttribute="top" id="z2J-dZ-B2g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XKd-e0-mw2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gdP-p9-lJJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gTZ-kW-Tzc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="gDK-fg-Mcc" id="rX4-Rl-YjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ia2-J8-3j6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784.79999999999995" y="783.99014778325125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ubipro" width="719" height="719"/>
+    </resources>
+</document>
