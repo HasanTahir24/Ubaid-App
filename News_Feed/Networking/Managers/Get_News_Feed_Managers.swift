@@ -13,28 +13,31 @@ class GetNewsFeedManagers{
     
     func get_News_Feed(access_token : String,completionBlock : @escaping (_ Success:Get_News_FeedModel.get_News_Feed_SuccessModel?, _ AuthError : Get_News_FeedModel.get_News_Feed_ErrorModel? , Error?)->()){
         
-        
-        
-        let params = [access_token : "access_token"]
+
         let body = [APIClient.Params.serverKey : APIClient.SERVER_KEY.Server_Key, APIClient.Params.type : "get_news_feed", APIClient.Params.limit : 10] as [String : Any]
     Alamofire.request(APIClient.Get_News_Feed.get_News_Feed_Posts + access_token, method: .post, parameters: body, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             if response.result.value != nil {
     guard let res = response.result.value as? [String:Any] else {return}
-        guard let apiStatusCode = res["api_status"]  as? Any else {return}
+         
+    guard let apiStatusCode = res["api_status"]  as? Any else {return}
+                
+
     let apiCode = apiStatusCode as? Int
-                if apiCode == 200 {
-guard let alldata = try? JSONSerialization.data(withJSONObject: response.value, options: []) else {return}
-    
-                    print(response.value)
-guard let result = try? JSONDecoder().decode(Get_News_FeedModel.get_News_Feed_SuccessModel.self, from: alldata) else {return}
-       print(result)
+        if apiCode == 200 {
                     
-        completionBlock(result,nil,nil)
+//    guard let jsonArray = res["data"] as? [[String: Any]] else {return}
+//    Get_News_FeedModel.Datum.postdata = jsonArray
+                    
+    let result = Get_News_FeedModel.get_News_Feed_SuccessModel(json: res)
+    print(result)
+
+    completionBlock(result,nil,nil)
+                
                 }
                 
                 else {
 guard let alldata = try? JSONSerialization.data(withJSONObject: response.value, options: []) else {return}
-                    print(response.value)
+                   
     guard let result = try? JSONDecoder().decode(Get_News_FeedModel.get_News_Feed_ErrorModel.self, from: alldata) else {return}
 //                    print(result)
                     

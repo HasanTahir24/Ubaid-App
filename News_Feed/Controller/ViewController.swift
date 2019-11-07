@@ -25,7 +25,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var array = [datas]()
     
     
-    var newsFeedArray = [Get_News_FeedModel.Datum]()
+    var newsFeedArray = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,107 +77,121 @@ NotificationCenter.default.addObserver(self, selector: #selector(ViewController.
        
         }
            else  {
+            let index = self.newsFeedArray[indexPath.row]
 //
             var cellIdentefier = ""
             var tableViewCells = UITableViewCell()
-//    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentefier) as? UITableViewCell
-            if self.newsFeedArray[indexPath.row].postFile != "" {
-            let url = URL(string: self.newsFeedArray[indexPath.row].postFile)
-            
-            let urlExtension: String? = url?.pathExtension
-            print("urlExtension",urlExtension)
-            if (urlExtension == "jpg" || urlExtension == "png" || urlExtension == "jpeg"){
+            if let postfile = index["postFile"] as? String  {
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
-                
-                self.tableView.rowHeight = UITableView.automaticDimension
-                self.tableView.estimatedRowHeight = UITableView.automaticDimension
-                let url1 = URL(string: self.newsFeedArray[indexPath.row].publisher.avatar)
-                cell.profileImage.kf.setImage(with: url1)
-                cell.profileName.text = self.newsFeedArray[indexPath.row].publisher.name
-                cell.timeLabel.text = self.newsFeedArray[indexPath.row].postTime
-                cell.statusLabel.text! = self.newsFeedArray[indexPath.row].postText.htmlToString
-                cell.videoView.isHidden = true
-               
-        cell.stausimage.sd_setImage(with: url, placeholderImage: nil, options: []) {[weak self] (image, error, casheh, url) in
-                      if image != nil {
-                DispatchQueue.main.async {
-                let ratio = image!.size.width / image!.size.height
-                let newHeight = cell.stausimage.frame.width / ratio
-                cell.heigthConstraint.constant = newHeight
-                    
-                cell.stausimage.frame.size = CGSize(width: cell.contentView.frame.width, height:  cell.heigthConstraint.constant)
-                
+                if postfile != ""{
+                    let url = URL(string: postfile)
+                    let urlExtension: String? = url?.pathExtension
+                    if (urlExtension == "jpg" || urlExtension == "png" || urlExtension == "jpeg"){
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
+                    self.tableView.rowHeight = UITableView.automaticDimension
+                    self.tableView.estimatedRowHeight = UITableView.automaticDimension
+                        cell.videoView.isHidden = true
+                    if let time = index["postTime"] as? String{
+                    cell.timeLabel.text! = time
+                        }
+                    if let textStatus = index["postText"] as? String {
+                        cell.statusLabel.text! = textStatus.htmlToString
+                        }
+                        if let name = index["publisher"] as? [String:Any] {
+                            if let profilename = name["name"] as? String{
+                                cell.profileName.text! = profilename
+                            }
+                            if let avatarUrl =  name["avatar"] as? String {
+                                let url = URL(string: avatarUrl)
+                                 cell.profileImage.kf.setImage(with: url)
+                                
+                            }
+                        }
                   
-              }
-                        
 
-                      }
+                cell.stausimage.sd_setImage(with: url, placeholderImage: nil, options: []) {[weak self] (image, error, casheh, url) in
+                    if image != nil {
+                    DispatchQueue.main.async {
+                    let ratio = image!.size.width / image!.size.height
+                    let newHeight = cell.stausimage.frame.width / ratio
+                    cell.heigthConstraint.constant = newHeight
+                                           
+                cell.stausimage.frame.size = CGSize(width: cell.contentView.frame.width, height:cell.heigthConstraint.constant)
+                    }
+                                            
+                    }
                         
+                    else {
+                        cell.heigthConstraint.constant = 0
+                    }
+                    
+                }
+                        cellIdentefier = "NewsFeedCell"
+                        tableViewCells = cell
+                   }
+    else if( urlExtension == ".wav" ||  urlExtension == ".mp3"){
+let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
+
+                if let name = index["publisher"] as? [String:Any] {
+                        if let profilename = name["name"] as? String{
+                            cell.nameLabel.text! = profilename
+                        }
+                        if let avatarUrl =  name["avatar"] as? String {
+                        let url = URL(string: avatarUrl)
+                        cell.avatarImage.kf.setImage(with: url)
+                            
+                        }
+                    }
+                    if let time = index["postTime"] as? String{
+                        cell.timeLabel.text! = time
+                        }
+                        
+                    if let textStatus = index["postText"] as? String {
+                    cell.statusLabel.text! = textStatus.htmlToString
+                        }
                        
+                    cell.loadMp3(url: postfile)
+                    self.tableView.rowHeight = 200
+                    cellIdentefier = "musicCell"
+                    tableViewCells = cell
+                    }
+                    
+                  
+                }
+                else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
 
- else {
-            cell.heigthConstraint.constant = 0
-                      }
-
-           }
+            if let name = index["publisher"] as? [String:Any] {
+                if let profilename = name["name"] as? String{
+                    cell.profileName.text! = profilename
+                }
                 
-                cellIdentefier = "NewsFeedCell"
-                tableViewCells = cell
+            if let avatarUrl =  name["avatar"] as? String {
+                let url = URL(string: avatarUrl)
+                cell.profileImage.kf.setImage(with: url)
+                            
+                }
+                   }
+               if let time = index["postTime"] as? String{
+                cell.timeLabel.text! = time
+                  }
+                if let textStatus = index["postText"] as? String {
+                cell.statusLabel.text! = textStatus.htmlToString
+                        
+                  }
+                    
+                    cell.videoView.isHidden = true
+                    cell.heigthConstraint.constant = 0
+                    self.tableView.rowHeight = UITableView.automaticDimension
+                    self.tableView.estimatedRowHeight = UITableView.automaticDimension
+                    cellIdentefier = "NewsFeedCell"
+                    tableViewCells = cell
+                }
             
+                
             }
-        else if( urlExtension == ".wav" ||  urlExtension == ".mp3"){
-    let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
-                
-    cell.loadMp3(url: self.newsFeedArray[indexPath.row].postFile)
-     let url1 = URL(string:
-        self.newsFeedArray[indexPath.row].publisher.avatar)
-    cell.avatarImage.kf.setImage(with: url1)
-                
-   cell.nameLabel.text = self.newsFeedArray[indexPath.row].publisher.name
-                
-    cell.timeLabel.text = self.newsFeedArray[indexPath.row].postTime
-    cell.statusLabel.text! = self.newsFeedArray[indexPath.row].postText.htmlToString
-    self.tableView.rowHeight = 200
-                
-   cellIdentefier = "musicCell"
-   tableViewCells = cell
-
-
-
-            }
-    else if urlExtension == "mp4" {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
             
-            self.tableView.rowHeight = UITableView.automaticDimension
-            self.tableView.estimatedRowHeight = UITableView.automaticDimension
-            let url1 = URL(string: self.newsFeedArray[indexPath.row].publisher.avatar)
-            cell.profileImage.kf.setImage(with: url1)
-            cell.profileName.text = self.newsFeedArray[indexPath.row].publisher.name
-            cell.timeLabel.text = self.newsFeedArray[indexPath.row].postTime
-            cell.statusLabel.text! = self.newsFeedArray[indexPath.row].postText.htmlToString
-            cell.heigthConstraint.constant = 0
-            cell.videoView.isHidden = false
-            }
-         
-        }
-            else  {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
-                cell.profileName.text = self.newsFeedArray[indexPath.row].publisher.name
-                cell.timeLabel.text = self.newsFeedArray[indexPath.row].postTime
-                cell.statusLabel.text! = self.newsFeedArray[indexPath.row].postText.htmlToString
-                let url1 = URL(string:
-               self.newsFeedArray[indexPath.row].publisher.avatar)
-                cell.profileImage.kf.setImage(with: url1)
-                cell.heigthConstraint.constant = 0
-//                 cell.videoView.isHidden = true
-                self.tableView.rowHeight = UITableView.automaticDimension
-                self.tableView.estimatedRowHeight = UITableView.automaticDimension
-                cellIdentefier = "NewsFeedCell"
-                tableViewCells = cell
-            }
-
-//            ZKProgressHUD.dismiss()
+            
 
             return tableViewCells
                  
@@ -231,11 +245,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(ViewController.
                         self?.newsFeedArray.append(i)
                         
                     }
-//                    self?.tableView.beginUpdates()
-//                    self?.tableView.insertRows(at: [IndexPath(row: (self?.newsFeedArray.count)!-1, section: 0)], with: .automatic)
-//                    self?.tableView.endUpdates()
-                    
-                    
+
                     self?.tableView.reloadData()
                     ZKProgressHUD.dismiss()
                     print(self?.newsFeedArray.count)
