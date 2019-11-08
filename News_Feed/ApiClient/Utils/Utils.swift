@@ -16,11 +16,26 @@ public struct APIClient {
         
     }
     
+    public struct Login_Authentication {
+           public static let  loginAuthApi = "\(baseURl)/auth"
+           
+       }
+    
+    public struct SignUp_Authentication {
+            public static let  signupAuthApi = "\(baseURl)/create-account"
+              }
+       
+    
+    
     public struct Params {
         
         public static let serverKey = "server_key"
         public static let type = "type"
         public static let limit = "limit"
+        public static let userName = "username"
+        public static let password = "password"
+        public static let email = "email"
+        public static let confirmPassword = "confirm_password"
         
         
     }

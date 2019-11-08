@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="-3228" y="-705"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="cdK-Ud-yeE">
             <objects>
-                <viewController id="J6x-Es-Ud6" sceneMemberID="viewController">
+                <viewController id="J6x-Es-Ud6" customClass="LoginController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ud-tU-sb3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,6 +168,9 @@
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SignIn:" destination="J6x-Es-Ud6" eventType="touchUpInside" id="3kQ-OH-imv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qve-6u-kAL">
                                 <rect key="frame" x="131" y="542.5" width="152" height="33"/>
@@ -262,15 +265,19 @@
                         <viewLayoutGuide key="safeArea" id="ST1-o6-Zgn"/>
                     </view>
                     <navigationItem key="navigationItem" id="9uZ-Ac-7BJ"/>
+                    <connections>
+                        <outlet property="passwordField" destination="UeR-eA-HeT" id="l5g-uZ-RU6"/>
+                        <outlet property="userNameField" destination="FKC-30-0dA" id="teb-Jk-B9A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPU-uh-bQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2535" y="-705"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up Controller-->
         <scene sceneID="Whm-3g-hmv">
             <objects>
-                <viewController id="10n-tL-Xlh" sceneMemberID="viewController">
+                <viewController id="10n-tL-Xlh" customClass="SignUpController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2ST-Ae-OHo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -462,6 +469,9 @@
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="Register:" destination="10n-tL-Xlh" eventType="touchUpInside" id="YN3-yW-cM7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijm-R0-czK">
                                 <rect key="frame" x="129.5" y="649" width="155" height="26"/>
@@ -505,6 +515,14 @@
                         <viewLayoutGuide key="safeArea" id="eMB-RB-auY"/>
                     </view>
                     <navigationItem key="navigationItem" id="TgG-Ye-Al0"/>
+                    <connections>
+                        <outlet property="confirmPassword" destination="YeW-el-dJ6" id="JZH-GA-43Y"/>
+                        <outlet property="email" destination="F8c-FB-xh5" id="Kkg-mH-yt0"/>
+                        <outlet property="firstName" destination="wui-pK-2UF" id="RGh-bZ-xq5"/>
+                        <outlet property="lastName" destination="8zT-D2-2dV" id="xKD-eC-BrZ"/>
+                        <outlet property="passwordField" destination="shW-ax-r5V" id="wvO-6i-7Rl"/>
+                        <outlet property="userNameField" destination="3hm-JF-dKh" id="RYL-oA-0Cv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bu3-VN-De7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
