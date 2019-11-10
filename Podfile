@@ -14,6 +14,8 @@ target 'News_Feed' do
   pod 'SDWebImage', '~> 4.2'
    pod 'MobilePlayer'
    pod 'Player'
+   pod 'IQKeyboardManager' #iOS8 and later
+
   target 'News_FeedTests' do
     inherit! :search_paths
     # Pods for testing

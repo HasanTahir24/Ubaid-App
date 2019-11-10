@@ -23,7 +23,7 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var confirmPassword: RoundTextField!
     
-    
+   var error = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,28 +42,41 @@ class SignUpController: UIViewController {
        }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.isHidden = true
     }
     
 
     @IBAction func Register(_ sender: Any) {
         if self.userNameField.text?.isEmpty == true {
-          self.showAlert(title: "Required Field", message: "Required UserName")
+            self.error = "Error, Required Username"
+          self.performSegue(withIdentifier: "ErrorVC", sender: self)
         }
         else if self.email.text?.isEmpty == true{
-            self.showAlert(title: "Required Field", message: "Required Email")
+            self.error = "Error, Required Email"
+            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+            
         }
         else if self.passwordField.text?.isEmpty == true{
-            self.showAlert(title: "Required Field", message: "Required Password")
+            self.error = "Error, Required Password"
+            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+            
         }
         else if self.confirmPassword.text?.isEmpty == true{
-            self.showAlert(title: "Required Field", message: "Required Confirm Password")
+            self.error = "Error, Required ConfirmPassword"
+            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+            
         }
         
         else {
             ZKProgressHUD.show("Loading")
             self.signUPAuthentication(userName: self.userNameField.text!, firstName: "", lastName: "", email: self.email.text!, password: self.passwordField.text!, confirmPassword: self.confirmPassword.text!)
         }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVc = segue.destination as! SecurityController
+        destinationVc.error = self.error
         
     }
     
@@ -75,18 +88,20 @@ class SignUpController: UIViewController {
           switch status {
           case .unknown, .offline:
                 ZKProgressHUD.dismiss()
-          showAlert(title: "", message: "Internet Connection Failed")
-                       
+                self.error = "Internet Connection Failed"
+                self.performSegue(withIdentifier: "ErrorVC", sender: self)
           case .online(.wwan), .online(.wiFi):
             
             AuthenticationManager.sharedInstance.signUPAuthentication(userName: userName, password: password, email: email, confirmPassword: confirmPassword) { (success, authError, error) in
                 if success != nil {
                     ZKProgressHUD.dismiss()
+                    self.performSegue(withIdentifier: "imageSlider", sender: self)
                     print("Login Succesfull")
                 }
               else if authError != nil {
                  ZKProgressHUD.dismiss()
-                self.showAlert(title: "", message: ((authError?.errors.errorText)!))
+                    self.error = authError?.errors.errorText ?? ""
+                    self.performSegue(withIdentifier: "ErrorVC", sender: self)
                 print(authError?.errors.errorText)
                     
                 }
@@ -102,10 +117,14 @@ class SignUpController: UIViewController {
             
         
         }
+
+    }
     
     
-    
-    
+    @IBAction func PopView(_ sender: Any) {
+        
+    self.navigationController?.popViewController(animated: true)
+        
     }
     
 

@@ -16,7 +16,7 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var passwordField: RoundTextField!
     
-    
+   var error = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +43,15 @@ class LoginController: UIViewController {
     @IBAction func SignIn(_ sender: Any) {
         
         if self.userNameField.text?.isEmpty == true {
-        self.showAlert(title: "Required Field", message: "Required UserName")
+            self.error = "Error, Required Username"
+            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+//        self.showAlert(title: "Required Field", message: "Required UserName")
          }
         else if self.passwordField.text?.isEmpty == true {
-        self.showAlert(title: "Required Field", message: "Required Password")
+             self.error = "Error, Required Password"
+            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+
+//        self.showAlert(title: "Required Field", message: "Required Password")
         }
         else {
             ZKProgressHUD.show("Loading")
@@ -56,15 +61,22 @@ class LoginController: UIViewController {
         }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ErrorVC"{
+        let destinationVc = segue.destination as! SecurityController
+        destinationVc.error = error
+    }
+       }
+    
     
 private func loginAuthentication (userName:String, password : String) {
   
         let status = Reach().connectionStatus()
         switch status {
         case .unknown, .offline:
-             
-        showAlert(title: "", message: "Internet Connection Failed")
-                     
+             self.error = "Internet Connection Failed"
+             self.performSegue(withIdentifier: "ErrorVC", sender: self)
+
         case .online(.wwan), .online(.wiFi):
         
         AuthenticationManager.sharedInstance.loginAuthentication(userName: userName, password: password) { (success, authError, error) in
@@ -72,13 +84,18 @@ private func loginAuthentication (userName:String, password : String) {
             if success != nil {
                 ZKProgressHUD.dismiss()
              print("Login Succesfull")
+             self.performSegue(withIdentifier: "imageSlider", sender: self)
                 
             }
             
             
             else if authError != nil {
                 ZKProgressHUD.dismiss()
-                self.showAlert(title: "", message: ((authError?.errors.errorText)!))
+                self.error = authError?.errors.errorText ?? ""
+                self.performSegue(withIdentifier: "ErrorVC", sender: self)
+
+//                self.showAlert(title: "", message: ((authError?.errors.errorText)!))
+                
                 print(authError?.errors.errorText)
                 
             }
@@ -97,6 +114,13 @@ private func loginAuthentication (userName:String, password : String) {
         
         
     }
+    
+    
+//    @IBAction func CraeteAccount(_ sender: Any) {
+//
+//    self.performSegue(withIdentifier: "SignUpVC", sender: self)
+//
+//    }
     
   
 
