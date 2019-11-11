@@ -21,6 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnabled = true
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
+        if (UserData.getUSER_ID() != nil)  {
+            print(UserData.getUSER_ID())
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "News_FeedVC")
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+            return true
+            
+        }
+        else {
+        
         let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
         
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "FirstVc")
@@ -29,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
 
         return true
+         
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

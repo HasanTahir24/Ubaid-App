@@ -33,14 +33,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
 NotificationCenter.default.addObserver(self, selector: #selector(ViewController.networkStatusChanged(_:)), name: Notification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
               Reach().monitorReachabilityChanges()
-        ZKProgressHUD.show("Loading")
+       // ZKProgressHUD.show("Loading")
         
       
         
         
         tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: "NewsFeedCell")
         tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "musicCell")
-    self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
+    //self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
     }
     
     

@@ -69,20 +69,24 @@ class SignUpController: UIViewController {
         
         else {
             ZKProgressHUD.show("Loading")
-            self.signUPAuthentication(userName: self.userNameField.text!, firstName: "", lastName: "", email: self.email.text!, password: self.passwordField.text!, confirmPassword: self.confirmPassword.text!)
+            self.signUPAuthentication(userName: self.userNameField.text!, email: self.email.text!, password:self.passwordField.text!, confirmPassword: self.confirmPassword.text!)
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVc = segue.destination as! SecurityController
-        destinationVc.error = self.error
-        
+          if segue.identifier == "ErrorVC"{
+            let destinationVc = segue.destination as! SecurityController
+            destinationVc.error = error
+        }
+          
     }
+        
     
     
     
-    private func signUPAuthentication(userName : String, firstName : String, lastName : String, email : String, password : String,confirmPassword : String) {
+    
+    private func signUPAuthentication(userName : String,email : String, password : String,confirmPassword : String) {
     
     let status = Reach().connectionStatus()
           switch status {
@@ -94,9 +98,11 @@ class SignUpController: UIViewController {
             
             AuthenticationManager.sharedInstance.signUPAuthentication(userName: userName, password: password, email: email, confirmPassword: confirmPassword) { (success, authError, error) in
                 if success != nil {
+                    UserData.setUSER_ID(success?.userID)
+                    UserData.setaccess_token(success?.accessToken)
                     ZKProgressHUD.dismiss()
                     self.performSegue(withIdentifier: "imageSlider", sender: self)
-                    print("Login Succesfull")
+                    print("SignUp Succesfull")
                 }
               else if authError != nil {
                  ZKProgressHUD.dismiss()

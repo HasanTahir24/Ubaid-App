@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -550,81 +548,70 @@
             </objects>
             <point key="canvasLocation" x="-1023" y="-707"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Slider Controller-->
         <scene sceneID="TNa-rt-5hI">
             <objects>
-                <viewController id="zsp-ks-pVR" sceneMemberID="viewController">
+                <viewController id="zsp-ks-pVR" customClass="ImageSliderController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDf-mf-589">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0U-OM-mAW">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0U-OM-mAW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXe-Zi-2ce">
-                                        <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
-                                        <subviews>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="hLc-o5-Hxf">
-                                                <rect key="frame" x="179.5" y="829" width="55" height="37"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </pageControl>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="Hn6-OS-33V">
-                                                <rect key="frame" x="0.0" y="343" width="414" height="210"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="210" id="ToJ-Ah-0iW"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DY0-0k-sjE">
-                                                <rect key="frame" x="131" y="254" width="152" height="29"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast so we can take you to our space" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucr-85-3Sj">
-                                                <rect key="frame" x="15" y="613" width="384" height="23.5"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.17336893081665039" green="0.25374019145965576" blue="0.32917213439941406" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ucr-85-3Sj" secondAttribute="trailing" constant="15" id="01k-WU-9BL"/>
-                                            <constraint firstItem="Hn6-OS-33V" firstAttribute="leading" secondItem="vXe-Zi-2ce" secondAttribute="leading" id="2fN-p4-kQR"/>
-                                            <constraint firstItem="DY0-0k-sjE" firstAttribute="centerX" secondItem="vXe-Zi-2ce" secondAttribute="centerX" id="657-Mf-fhQ"/>
-                                            <constraint firstItem="Hn6-OS-33V" firstAttribute="centerX" secondItem="vXe-Zi-2ce" secondAttribute="centerX" id="HMk-K5-RAM"/>
-                                            <constraint firstItem="Hn6-OS-33V" firstAttribute="centerY" secondItem="vXe-Zi-2ce" secondAttribute="centerY" id="Ucc-gh-WNZ"/>
-                                            <constraint firstItem="ucr-85-3Sj" firstAttribute="top" secondItem="Hn6-OS-33V" secondAttribute="bottom" constant="60" id="Wna-0k-icT"/>
-                                            <constraint firstItem="hLc-o5-Hxf" firstAttribute="centerX" secondItem="vXe-Zi-2ce" secondAttribute="centerX" id="bK9-sZ-bG6"/>
-                                            <constraint firstAttribute="bottom" secondItem="hLc-o5-Hxf" secondAttribute="bottom" constant="30" id="bn1-rG-9Xb"/>
-                                            <constraint firstItem="Hn6-OS-33V" firstAttribute="top" secondItem="DY0-0k-sjE" secondAttribute="bottom" constant="60" id="jh5-F7-ao7"/>
-                                            <constraint firstItem="ucr-85-3Sj" firstAttribute="leading" secondItem="vXe-Zi-2ce" secondAttribute="leading" constant="15" id="oHb-4Y-puC"/>
-                                            <constraint firstItem="ucr-85-3Sj" firstAttribute="centerX" secondItem="vXe-Zi-2ce" secondAttribute="centerX" id="uFD-DR-TUW"/>
-                                            <constraint firstAttribute="trailing" secondItem="Hn6-OS-33V" secondAttribute="trailing" id="xa9-jw-7CS"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="vXe-Zi-2ce" secondAttribute="trailing" id="Tue-Ta-461"/>
-                                    <constraint firstItem="vXe-Zi-2ce" firstAttribute="height" secondItem="x0U-OM-mAW" secondAttribute="height" id="Umg-on-wDS"/>
-                                    <constraint firstAttribute="bottom" secondItem="vXe-Zi-2ce" secondAttribute="bottom" id="WeO-Cs-3Iw"/>
-                                    <constraint firstItem="vXe-Zi-2ce" firstAttribute="top" secondItem="x0U-OM-mAW" secondAttribute="top" id="XV0-hg-eUv"/>
-                                    <constraint firstItem="vXe-Zi-2ce" firstAttribute="leading" secondItem="x0U-OM-mAW" secondAttribute="leading" id="tsH-Dv-nIb"/>
-                                </constraints>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="hLc-o5-Hxf">
+                                <rect key="frame" x="179.5" y="792" width="55" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="pageIndicatorTintColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A02-Ef-lvQ">
+                                <rect key="frame" x="59.5" y="792" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="hLQ-bC-r5b"/>
+                                    <constraint firstAttribute="height" constant="50" id="o9Q-IE-Bwm"/>
+                                </constraints>
+                                <state key="normal" image="gotoNext"/>
+                                <connections>
+                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="jlc-8R-ylM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un2-Lv-WxI">
+                                <rect key="frame" x="304.5" y="792" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tVq-F6-uwg"/>
+                                    <constraint firstAttribute="width" constant="50" id="um5-JT-kSN"/>
+                                </constraints>
+                                <state key="normal" image="arrow-pointing"/>
+                                <connections>
+                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="u7P-Uu-laP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QCf-FZ-jYs" firstAttribute="bottom" secondItem="hLc-o5-Hxf" secondAttribute="bottom" constant="20" id="1cT-nd-YEx"/>
+                            <constraint firstItem="A02-Ef-lvQ" firstAttribute="centerY" secondItem="hLc-o5-Hxf" secondAttribute="centerY" id="BqF-0X-3hl"/>
+                            <constraint firstItem="QCf-FZ-jYs" firstAttribute="bottom" secondItem="Un2-Lv-WxI" secondAttribute="bottom" constant="20" id="IoF-h0-aUx"/>
                             <constraint firstItem="x0U-OM-mAW" firstAttribute="top" secondItem="ZDf-mf-589" secondAttribute="top" id="ItQ-0I-HVT"/>
+                            <constraint firstItem="hLc-o5-Hxf" firstAttribute="leading" secondItem="A02-Ef-lvQ" secondAttribute="trailing" constant="70" id="JW6-JH-VaY"/>
                             <constraint firstItem="x0U-OM-mAW" firstAttribute="trailing" secondItem="QCf-FZ-jYs" secondAttribute="trailing" id="Jbc-0P-Mv6"/>
-                            <constraint firstItem="vXe-Zi-2ce" firstAttribute="width" secondItem="ZDf-mf-589" secondAttribute="width" id="k3L-Da-ZmH"/>
+                            <constraint firstItem="QCf-FZ-jYs" firstAttribute="bottom" secondItem="A02-Ef-lvQ" secondAttribute="bottom" constant="20" id="Omj-Fc-G1R"/>
+                            <constraint firstItem="hLc-o5-Hxf" firstAttribute="centerX" secondItem="QCf-FZ-jYs" secondAttribute="centerX" id="Rpw-Hk-Vrp"/>
+                            <constraint firstItem="Un2-Lv-WxI" firstAttribute="centerY" secondItem="hLc-o5-Hxf" secondAttribute="centerY" id="Vhs-3w-JQH"/>
                             <constraint firstItem="x0U-OM-mAW" firstAttribute="leading" secondItem="QCf-FZ-jYs" secondAttribute="leading" id="kL6-so-2ea"/>
+                            <constraint firstItem="Un2-Lv-WxI" firstAttribute="leading" secondItem="hLc-o5-Hxf" secondAttribute="trailing" constant="70" id="n8z-Xn-YKt"/>
                             <constraint firstAttribute="bottom" secondItem="x0U-OM-mAW" secondAttribute="bottom" id="uTh-g7-27l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QCf-FZ-jYs"/>
                     </view>
+                    <connections>
+                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="R9L-OD-utq"/>
+                        <outlet property="pageController" destination="hLc-o5-Hxf" id="3dk-NM-h2w"/>
+                        <outlet property="scrollView" destination="x0U-OM-mAW" id="kDF-kF-DNN"/>
+                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="7ON-ll-Ib7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-uH-IUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -650,13 +637,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow-pointing" width="32" height="32"/>
+        <image name="gotoNext" width="32" height="32"/>
         <image name="logo" width="468" height="75"/>
-        <image name="rocket" width="223" height="229"/>
         <image name="wall" width="300" height="649"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9hx-BB-uKr"/>
-        <segue reference="Wrt-JD-7DS"/>
+        <segue reference="f5a-al-SAG"/>
         <segue reference="Sp9-Lh-920"/>
     </inferredMetricsTieBreakers>
 </document>

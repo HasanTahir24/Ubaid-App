@@ -84,6 +84,8 @@ private func loginAuthentication (userName:String, password : String) {
             if success != nil {
                 ZKProgressHUD.dismiss()
              print("Login Succesfull")
+                UserData.setaccess_token(success?.accessToken)
+                UserData.setUSER_ID(success?.userID)
              self.performSegue(withIdentifier: "imageSlider", sender: self)
                 
             }
@@ -93,10 +95,7 @@ private func loginAuthentication (userName:String, password : String) {
                 ZKProgressHUD.dismiss()
                 self.error = authError?.errors.errorText ?? ""
                 self.performSegue(withIdentifier: "ErrorVC", sender: self)
-
-//                self.showAlert(title: "", message: ((authError?.errors.errorText)!))
-                
-                print(authError?.errors.errorText)
+                    print(authError?.errors.errorText)
                 
             }
             
