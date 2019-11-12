@@ -15,6 +15,7 @@ target 'News_Feed' do
    pod 'MobilePlayer'
    pod 'Player'
    pod 'IQKeyboardManager' #iOS8 and later
+  pod 'FBSDKLoginKit'
 
   target 'News_FeedTests' do
     inherit! :search_paths
