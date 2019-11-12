@@ -67,6 +67,28 @@ class AuthenticationModel {
         }
     }
     
+    struct SocialLogin_SuccessModel : Codable {
+        let apiStatus: Int?
+        let timezone, accessToken, userID: String?
+        
+        enum CodingKeys: String, CodingKey {
+            case apiStatus = "api_status"
+            case timezone
+            case accessToken = "access_token"
+            case userID = "user_id"
+        }
+    }
+    
+    
+    struct SocialLogin_ErrorModel : Codable {
+        let apiStatus: String?
+        let errors: Errors?
+        
+        enum CodingKeys: String, CodingKey {
+            case apiStatus = "api_status"
+            case errors
+        }
+    }
     
     
     

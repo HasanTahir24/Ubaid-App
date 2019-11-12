@@ -8,13 +8,14 @@
 
 import UIKit
 import ZKProgressHUD
+import FBSDKLoginKit
 
 class LoginController: UIViewController {
 
     
     @IBOutlet weak var userNameField: RoundTextField!
-    
     @IBOutlet weak var passwordField: RoundTextField!
+    @IBOutlet weak var fbLoginBtn: FBButton!
     
    var error = ""
     
@@ -69,6 +70,12 @@ class LoginController: UIViewController {
        }
     
     
+    
+    @IBAction func FBLogin(_ sender: Any) {
+        self.facebookLogin() 
+    }
+    
+    
 private func loginAuthentication (userName:String, password : String) {
   
         let status = Reach().connectionStatus()
@@ -114,6 +121,92 @@ private func loginAuthentication (userName:String, password : String) {
         
     }
     
+    
+    private func facebookLogin () {
+        
+        let status = Reach().connectionStatus()
+        switch status {
+        case .unknown, .offline:
+        self.error = "Internet Connection Failed"
+        self.performSegue(withIdentifier: "ErrorVC", sender: self)
+            
+        case .online(.wwan), .online(.wiFi):
+//            ZKProgressHUD.show("Loading")
+            let fbLoginManager : LoginManager = LoginManager()
+            
+            fbLoginManager.logIn(permissions: ["email"], from: self) { (result, error) in
+                if (error == nil) {
+                    ZKProgressHUD.dismiss()
+                    let fbloginresult : LoginManagerLoginResult = result!
+                    if(fbloginresult.isCancelled) {
+                        //Show Cancel alert
+                        ZKProgressHUD.dismiss()
+                        print("cancelResult",fbloginresult.isCancelled)
+                    }
+                    else if (fbloginresult.grantedPermissions != nil){
+                        ZKProgressHUD.dismiss()
+                        if fbloginresult.grantedPermissions.contains("email"){
+                            if AccessToken.current != nil {
+                                ZKProgressHUD.dismiss()
+    GraphRequest(graphPath: "me", parameters: ["fields":"email,name,id,picture.type(large),first_name,last_name"])
+                .start(completionHandler: { (connection, result, error) -> Void in
+                    if error == nil{
+                        let dic = result as! [String:Any]
+                        print("Dic result",dic)
+                        
+                guard let firstName = dic["first_name"] as? String else {return}
+                guard let lastName = dic["last_name"] as? String else {return}
+                guard let email = dic["email"] as? String else {return}
+                let token = AccessToken.current?.tokenString
+                print("Token",token)
+                        
+                        ZKProgressHUD.show("Loading")
+                        self.socialLogin(accesstoken: token ?? "", provider: "facebook", googleKey: "")
+                        
+                    }
+                    
+                                })
+                            }
+                        }
+        
+                    }
+                    
+                    
+                    
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    private func socialLogin(accesstoken : String, provider:String, googleKey : String){
+     
+        SocialLoginManager.sharedInstance.socailLogin(access_token: accesstoken, provider: provider, google_key: googleKey) { (success, authError, error) in
+            if success != nil {
+                
+                ZKProgressHUD.dismiss()
+                print("Login Succesfull")
+                UserData.setaccess_token(success?.accessToken)
+                UserData.setUSER_ID(success?.userID)
+                self.performSegue(withIdentifier: "imageSlider", sender: self)
+                }
+            else if authError != nil {
+                
+                ZKProgressHUD.dismiss()
+                self.error = authError?.errors?.errorText ?? ""
+                self.performSegue(withIdentifier: "ErrorVC", sender: self)
+                print(authError?.errors?.errorText)
+                }
+            else if error != nil {
+               ZKProgressHUD.dismiss()
+                print("error")
+            }
+        }
+        
+
+    }
     
 //    @IBAction func CraeteAccount(_ sender: Any) {
 //
