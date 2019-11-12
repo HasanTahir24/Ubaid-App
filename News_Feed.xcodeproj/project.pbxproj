@@ -44,6 +44,7 @@
 		1E3221DE2375A5220033D214 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221DD2375A5220033D214 /* AuthenticationModel.swift */; };
 		1E3221E02375BA6D0033D214 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221DF2375BA6D0033D214 /* LoginController.swift */; };
 		1E3221E22375BAA20033D214 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221E12375BAA20033D214 /* SignUpController.swift */; };
+		1E354240237A7F9F00EE7C20 /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */; };
 		533F0316F1BAB592B50F250B /* Pods_News_Feed_News_FeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FFBBDE379B5EF9FB89F633 /* Pods_News_Feed_News_FeedUITests.framework */; };
 		C14837901C436B68FE925853 /* Pods_News_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C0A2F6EC081D312B7B9649 /* Pods_News_Feed.framework */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,7 @@
 		1E3221DD2375A5220033D214 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		1E3221DF2375BA6D0033D214 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E3221E12375BAA20033D214 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
 		2824586C1AEAD6577C74DEB7 /* Pods-News_Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_Feed.debug.xcconfig"; path = "Target Support Files/Pods-News_Feed/Pods-News_Feed.debug.xcconfig"; sourceTree = "<group>"; };
 		57FFBBDE379B5EF9FB89F633 /* Pods_News_Feed_News_FeedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Feed_News_FeedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C0A2F6EC081D312B7B9649 /* Pods_News_Feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +281,7 @@
 			children = (
 				1E2B4348235EC6EC004A2F8F /* Get_News_Feed_Managers.swift */,
 				1E3221DB2375A3B30033D214 /* AuthenticationManager.swift */,
+				1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				1E2B4354235EDC05004A2F8F /* AlertExtension.swift in Sources */,
 				180B0835235CDB8000597D4D /* CollectionViewCell.swift in Sources */,
 				188CA27B23787999006773F2 /* SecurityController.swift in Sources */,
+				1E354240237A7F9F00EE7C20 /* SocialLoginManager.swift in Sources */,
 				1E2B434E235ECD51004A2F8F /* Utils.swift in Sources */,
 				1828F9B1235CD333004D5CCD /* StoriesCell.swift in Sources */,
 				1E2B6BB223791BF900612383 /* IntroImageSlider.swift in Sources */,
@@ -809,7 +813,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ubaid.News-Feed";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoWonder-iOS-Timeline";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -829,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Ubaid.News-Feed";
+				PRODUCT_BUNDLE_IDENTIFIER = "WoWonder-iOS-Timeline";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

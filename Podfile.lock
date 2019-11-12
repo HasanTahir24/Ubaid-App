@@ -2,6 +2,16 @@ PODS:
   - Alamofire (4.9.0)
   - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
+  - FBSDKCoreKit (5.10.0):
+    - FBSDKCoreKit/Basics (= 5.10.0)
+    - FBSDKCoreKit/Core (= 5.10.0)
+  - FBSDKCoreKit/Basics (5.10.0)
+  - FBSDKCoreKit/Core (5.10.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.10.0):
+    - FBSDKLoginKit/Login (= 5.10.0)
+  - FBSDKLoginKit/Login (5.10.0):
+    - FBSDKCoreKit (~> 5.0)
   - IQKeyboardManager (6.5.3)
   - Kingfisher (5.7.1)
   - MobilePlayer (1.3.0)
@@ -14,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - FBSDKLoginKit
   - IQKeyboardManager
   - Kingfisher
   - MobilePlayer
@@ -25,6 +36,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - IQKeyboardManager
     - Kingfisher
     - MobilePlayer
@@ -35,6 +48,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  FBSDKCoreKit: f9bae468a078f20c05c73450825ccd54cfafbbb7
+  FBSDKLoginKit: 4ece964272a52c4e1363d5c048a545e33761491b
   IQKeyboardManager: c2f901164d56807a35788483584d09fa69192e8e
   Kingfisher: 176d377ad339113c99ad4980cbae687f807e20fe
   MobilePlayer: e50e2160830f3db51d6e08067318aec6a9d39408
@@ -42,6 +57,6 @@ SPEC CHECKSUMS:
   SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   ZKProgressHUD: 60b25b87e75aa988e2711b8a1c66088ee39d9665
 
-PODFILE CHECKSUM: 6efc439800f138f0b03198ede3008983d754e196
+PODFILE CHECKSUM: 21ebe555fe4b4fe40816f44ba8cab76ad71e6c25
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.0

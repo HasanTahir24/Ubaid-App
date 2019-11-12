@@ -23,7 +23,11 @@ public struct APIClient {
     
     public struct SignUp_Authentication {
             public static let  signupAuthApi = "\(baseURl)/create-account"
-              }
+    }
+    public struct SocialLogin {
+        
+        public static let socailLoginApi = "\(baseURl)/social-login"
+    }
        
     
     
@@ -36,6 +40,9 @@ public struct APIClient {
         public static let password = "password"
         public static let email = "email"
         public static let confirmPassword = "confirm_password"
+        public static let accessToken = "access_token"
+        public static let provider = "provider"
+        public static let googleKey = "google_key"
         
         
     }
