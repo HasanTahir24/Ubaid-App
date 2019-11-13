@@ -23,6 +23,8 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var confirmPassword: RoundTextField!
     
+    @IBOutlet weak var checkBtn: UIButton!
+    
    var error = ""
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,10 @@ class SignUpController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    
+    @IBAction func Check(_ sender: Any) {
     }
     
 
@@ -132,6 +138,20 @@ class SignUpController: UIViewController {
     self.navigationController?.popViewController(animated: true)
         
     }
+    
+    @IBAction func TermsofService(_ sender: Any) {
+        if let url = URL(string: "https://demo.wowonder.com//terms/terms") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    
+    @IBAction func PrivacyPolicy(_ sender: Any) {
+        if let url = URL(string: "https://demo.wowonder.com/terms/privacy-policy") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     
 
 }

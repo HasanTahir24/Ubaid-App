@@ -24,6 +24,9 @@ class LoginController: UIViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(LoginController.networkStatusChanged(_:)), name: Notification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
         Reach().monitorReachabilityChanges()
+        self.fbLoginBtn.titleLabel?.textAlignment = .center
+        self.fbLoginBtn.setTitle("Continue with Facebook", for: .normal)
+        self.fbLoginBtn.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 15.0)
         
     }
     
@@ -207,6 +210,12 @@ private func loginAuthentication (userName:String, password : String) {
         
 
     }
+    
+    
+   
+    
+   
+    
     
 //    @IBAction func CraeteAccount(_ sender: Any) {
 //
