@@ -28,6 +28,11 @@ public struct APIClient {
         
         public static let socailLoginApi = "\(baseURl)/social-login"
     }
+    
+    public struct ForgetPassword {
+        
+    public static let forgetPasswordApi = "\(baseURl)/send-reset-password-email"
+    }
        
     
     

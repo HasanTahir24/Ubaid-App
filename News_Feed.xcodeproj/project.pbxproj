@@ -28,6 +28,9 @@
 		18D89C1A235B21E3003560ED /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D89C18235B21E3003560ED /* NewsFeedCell.swift */; };
 		18D89C1B235B21E3003560ED /* NewsFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D89C19235B21E3003560ED /* NewsFeedCell.xib */; };
 		18D89C1D235B2410003560ED /* Roundimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D89C1C235B2410003560ED /* Roundimage.swift */; };
+		18EB6CE1237DDD6800296E6C /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB6CE0237DDD6800296E6C /* ForgetPasswordController.swift */; };
+		18EB6CE3237DE5BC00296E6C /* ForgetPasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB6CE2237DE5BC00296E6C /* ForgetPasswordManager.swift */; };
+		18EB6CE5237DE6B800296E6C /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB6CE4237DE6B800296E6C /* ForgetPasswordModel.swift */; };
 		1E093E35237D1FAB00AF0631 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E093E34237D1FAB00AF0631 /* FBSDKLoginKit.framework */; };
 		1E093E37237D1FCC00AF0631 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E093E36237D1FCC00AF0631 /* FBSDKCoreKit.framework */; };
 		1E2486C02373D33F002927CD /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2486BF2373D33E002927CD /* Authentication.storyboard */; };
@@ -79,10 +82,10 @@
 		18792FDF236F5857009ECCEA /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		18792FE0236F5857009ECCEA /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		188CA27A23787999006773F2 /* SecurityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityController.swift; sourceTree = "<group>"; };
-		188CA27C23789332006773F2 /* ImageSliderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderController.swift; sourceTree = "<group>"; };
+		188CA27C23789332006773F2 /* ImageSliderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageSliderController.swift; path = "../New Group/ImageSliderController.swift"; sourceTree = "<group>"; };
 		18D89BE4235AFBA7003560ED /* News_Feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News_Feed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D89BE7235AFBA7003560ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		18D89BE9235AFBA7003560ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		18D89BE9235AFBA7003560ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../News/ViewController.swift; sourceTree = "<group>"; };
 		18D89BEC235AFBA8003560ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18D89BEF235AFBA8003560ED /* News_Feed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News_Feed.xcdatamodel; sourceTree = "<group>"; };
 		18D89BF1235AFBAF003560ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +100,9 @@
 		18D89C18235B21E3003560ED /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
 		18D89C19235B21E3003560ED /* NewsFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedCell.xib; sourceTree = "<group>"; };
 		18D89C1C235B2410003560ED /* Roundimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roundimage.swift; sourceTree = "<group>"; };
+		18EB6CE0237DDD6800296E6C /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
+		18EB6CE2237DE5BC00296E6C /* ForgetPasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordManager.swift; sourceTree = "<group>"; };
+		18EB6CE4237DE6B800296E6C /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
 		1E093E2D237D1DEC00AF0631 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E093E2E237D1DEC00AF0631 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E093E34237D1FAB00AF0631 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,11 +178,9 @@
 		184437AB2371F170002868D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18D89BE9235AFBA7003560ED /* ViewController.swift */,
-				1E3221DF2375BA6D0033D214 /* LoginController.swift */,
-				1E3221E12375BAA20033D214 /* SignUpController.swift */,
-				188CA27A23787999006773F2 /* SecurityController.swift */,
-				188CA27C23789332006773F2 /* ImageSliderController.swift */,
+				18EB6CE6237DEFCB00296E6C /* Authentication */,
+				18EB6CE7237DF00F00296E6C /* News_Feed */,
+				18EB6CE8237DF04000296E6C /* IntroVC */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				18D89BE6235AFBA7003560ED /* News_Feed */,
+				18D89BF3235AFBAF003560ED /* LaunchScreen.storyboard */,
 				18D89BFE235AFBB0003560ED /* News_FeedTests */,
 				18D89C09235AFBB0003560ED /* News_FeedUITests */,
 				18D89BE5235AFBA7003560ED /* Products */,
@@ -237,13 +242,11 @@
 				184437AA2371F154002868D4 /* Model */,
 				184437AC2371F1A5002868D4 /* Views */,
 				184437AB2371F170002868D4 /* Controller */,
+				18EB6CE9237DF0BA00296E6C /* Storyboards */,
 				18D89BE7235AFBA7003560ED /* AppDelegate.swift */,
-				18D89BEB235AFBA8003560ED /* Main.storyboard */,
 				18D89BEE235AFBA8003560ED /* News_Feed.xcdatamodeld */,
 				18D89BF1235AFBAF003560ED /* Assets.xcassets */,
-				18D89BF3235AFBAF003560ED /* LaunchScreen.storyboard */,
 				18D89BF6235AFBAF003560ED /* Info.plist */,
-				1E2486BF2373D33E002927CD /* Authentication.storyboard */,
 			);
 			path = News_Feed;
 			sourceTree = "<group>";
@@ -266,6 +269,42 @@
 			path = News_FeedUITests;
 			sourceTree = "<group>";
 		};
+		18EB6CE6237DEFCB00296E6C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				1E3221DF2375BA6D0033D214 /* LoginController.swift */,
+				1E3221E12375BAA20033D214 /* SignUpController.swift */,
+				18EB6CE0237DDD6800296E6C /* ForgetPasswordController.swift */,
+				188CA27A23787999006773F2 /* SecurityController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		18EB6CE7237DF00F00296E6C /* News_Feed */ = {
+			isa = PBXGroup;
+			children = (
+				18D89BE9235AFBA7003560ED /* ViewController.swift */,
+			);
+			path = News_Feed;
+			sourceTree = "<group>";
+		};
+		18EB6CE8237DF04000296E6C /* IntroVC */ = {
+			isa = PBXGroup;
+			children = (
+				188CA27C23789332006773F2 /* ImageSliderController.swift */,
+			);
+			path = IntroVC;
+			sourceTree = "<group>";
+		};
+		18EB6CE9237DF0BA00296E6C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				18D89BEB235AFBA8003560ED /* Main.storyboard */,
+				1E2486BF2373D33E002927CD /* Authentication.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		1E2B4342235EC5A3004A2F8F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +319,7 @@
 			children = (
 				1E2B4346235EC5F4004A2F8F /* Get_News_FeedModel.swift */,
 				1E3221DD2375A5220033D214 /* AuthenticationModel.swift */,
+				18EB6CE4237DE6B800296E6C /* ForgetPasswordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +330,7 @@
 				1E2B4348235EC6EC004A2F8F /* Get_News_Feed_Managers.swift */,
 				1E3221DB2375A3B30033D214 /* AuthenticationManager.swift */,
 				1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */,
+				18EB6CE2237DE5BC00296E6C /* ForgetPasswordManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -672,12 +713,15 @@
 				1E354240237A7F9F00EE7C20 /* SocialLoginManager.swift in Sources */,
 				1E2B434E235ECD51004A2F8F /* Utils.swift in Sources */,
 				1828F9B1235CD333004D5CCD /* StoriesCell.swift in Sources */,
+				18EB6CE3237DE5BC00296E6C /* ForgetPasswordManager.swift in Sources */,
 				1E2B6BB223791BF900612383 /* IntroImageSlider.swift in Sources */,
 				18D89C1A235B21E3003560ED /* NewsFeedCell.swift in Sources */,
 				1E2B4349235EC6EC004A2F8F /* Get_News_Feed_Managers.swift in Sources */,
 				1E2B6BB92379458F00612383 /* UserData.swift in Sources */,
 				1E2B4351235ED9F1004A2F8F /* Reach.swift in Sources */,
 				18D89BE8235AFBA7003560ED /* AppDelegate.swift in Sources */,
+				18EB6CE1237DDD6800296E6C /* ForgetPasswordController.swift in Sources */,
+				18EB6CE5237DE6B800296E6C /* ForgetPasswordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

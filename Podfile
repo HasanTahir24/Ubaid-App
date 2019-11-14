@@ -14,6 +14,8 @@ target 'News_Feed' do
   pod 'SDWebImage', '~> 4.2'
    pod 'MobilePlayer'
    pod 'Player'
+#   4.31.1
+#   '~> 4.35'
     pod 'FBSDKCoreKit', '~> 4.35'
     pod 'FBSDKLoginKit', '~> 4.35'
    pod 'IQKeyboardManager' #iOS8 and later

@@ -29,7 +29,7 @@ class SocialLoginManager{
                     
                 else {
                     guard let allData = try? JSONSerialization.data(withJSONObject: response.value, options: [])else {return}
-               print(response.value)     
+                    print(response.value)     
                     guard let result = try? JSONDecoder().decode(AuthenticationModel.SocialLogin_ErrorModel.self, from: allData) else {return}
                     completionBlock(nil,result,nil)
                     
@@ -47,7 +47,7 @@ class SocialLoginManager{
             
             
             
-        
+            
         }
         
         
@@ -57,7 +57,7 @@ class SocialLoginManager{
     }
     
     
-   static let sharedInstance = SocialLoginManager()
+    static let sharedInstance = SocialLoginManager()
     private init() {}
     
     
