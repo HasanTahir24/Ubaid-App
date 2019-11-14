@@ -14,9 +14,11 @@ target 'News_Feed' do
   pod 'SDWebImage', '~> 4.2'
    pod 'MobilePlayer'
    pod 'Player'
-    pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit', '~> 4.35'
+    pod 'FBSDKLoginKit', '~> 4.35'
    pod 'IQKeyboardManager' #iOS8 and later
   pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
 
   target 'News_FeedTests' do
     inherit! :search_paths

@@ -9,13 +9,15 @@
 import UIKit
 import ZKProgressHUD
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginController: UIViewController {
 
     
     @IBOutlet weak var userNameField: RoundTextField!
     @IBOutlet weak var passwordField: RoundTextField!
-    @IBOutlet weak var fbLoginBtn: FBButton!
+    @IBOutlet weak var fbLoginBtn: FBSDKButton!
+    @IBOutlet weak var googleBtn: GIDSignInButton!
     
    var error = ""
     
@@ -27,6 +29,7 @@ class LoginController: UIViewController {
         self.fbLoginBtn.titleLabel?.textAlignment = .center
         self.fbLoginBtn.setTitle("Continue with Facebook", for: .normal)
         self.fbLoginBtn.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 15.0)
+        
         
     }
     
@@ -79,6 +82,12 @@ class LoginController: UIViewController {
     }
     
     
+    @IBAction func GoogleSignin(_ sender : Any){
+        
+    }
+    
+    
+    
 private func loginAuthentication (userName:String, password : String) {
   
         let status = Reach().connectionStatus()
@@ -96,6 +105,7 @@ private func loginAuthentication (userName:String, password : String) {
              print("Login Succesfull")
                 UserData.setaccess_token(success?.accessToken)
                 UserData.setUSER_ID(success?.userID)
+                UserData.setUSER_ID("Email")
              self.performSegue(withIdentifier: "imageSlider", sender: self)
                 
             }
@@ -135,12 +145,12 @@ private func loginAuthentication (userName:String, password : String) {
             
         case .online(.wwan), .online(.wiFi):
 //            ZKProgressHUD.show("Loading")
-            let fbLoginManager : LoginManager = LoginManager()
+            let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
             
-            fbLoginManager.logIn(permissions: ["email"], from: self) { (result, error) in
+            fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
                 if (error == nil) {
                     ZKProgressHUD.dismiss()
-                    let fbloginresult : LoginManagerLoginResult = result!
+                    let fbloginresult : FBSDKLoginManagerLoginResult = result!
                     if(fbloginresult.isCancelled) {
                         //Show Cancel alert
                         ZKProgressHUD.dismiss()
@@ -149,9 +159,9 @@ private func loginAuthentication (userName:String, password : String) {
                     else if (fbloginresult.grantedPermissions != nil){
                         ZKProgressHUD.dismiss()
                         if fbloginresult.grantedPermissions.contains("email"){
-                            if AccessToken.current != nil {
+                            if FBSDKAccessToken.current != nil {
                                 ZKProgressHUD.dismiss()
-    GraphRequest(graphPath: "me", parameters: ["fields":"email,name,id,picture.type(large),first_name,last_name"])
+    FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name,id,picture.type(large),first_name,last_name"])
                 .start(completionHandler: { (connection, result, error) -> Void in
                     if error == nil{
                         let dic = result as! [String:Any]
@@ -160,7 +170,7 @@ private func loginAuthentication (userName:String, password : String) {
                 guard let firstName = dic["first_name"] as? String else {return}
                 guard let lastName = dic["last_name"] as? String else {return}
                 guard let email = dic["email"] as? String else {return}
-                let token = AccessToken.current?.tokenString
+                        let token = FBSDKAccessToken.current().tokenString
                 print("Token",token)
                         
                         ZKProgressHUD.show("Loading")
@@ -193,6 +203,7 @@ private func loginAuthentication (userName:String, password : String) {
                 print("Login Succesfull")
                 UserData.setaccess_token(success?.accessToken)
                 UserData.setUSER_ID(success?.userID)
+               
                 self.performSegue(withIdentifier: "imageSlider", sender: self)
                 }
             else if authError != nil {
@@ -211,18 +222,28 @@ private func loginAuthentication (userName:String, password : String) {
 
     }
     
-    
-   
-    
-   
-    
-    
-//    @IBAction func CraeteAccount(_ sender: Any) {
-//
-//    self.performSegue(withIdentifier: "SignUpVC", sender: self)
-//
-//    }
-    
-  
-
 }
+
+extension LoginController : GIDSignInDelegate{
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error == nil {
+          let userId = user.userID
+            let idToken = user.authentication.accessToken  // Safe to send to
+            print("user auth = \(user.authentication.accessToken)")
+            let token = user.authentication.accessToken ?? ""
+            socialLogin(accesstoken: token, provider: "google", googleKey: "")
+            }
+        else {
+            ZKProgressHUD.dismiss()
+            print(error.localizedDescription)
+        }
+        
+    }
+    }
+    
+    
+    
+    
+    
+

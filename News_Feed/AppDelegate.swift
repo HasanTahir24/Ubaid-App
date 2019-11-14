@@ -10,9 +10,12 @@ import UIKit
 import CoreData
 import IQKeyboardManager
 import FBSDKLoginKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+   
+    
 
     var window: UIWindow?
 
@@ -21,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared().isEnabled = true
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        GIDSignIn.sharedInstance().clientID = "149627362592-oc3rvhbldv7g6jj91rh2664qhjo2mgis.apps.googleusercontent.com"
         
         if (UserData.getUSER_ID() != nil)  {
             print(UserData.getUSER_ID())
@@ -30,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
+            
+            
             
             return true
             
@@ -47,14 +53,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         }
     }
+    
 
     
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
            
-        let handled: Bool = ApplicationDelegate.shared.application(application, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
            // Add any custom logic here.
-           return handled
+        return handled;GIDSignIn.sharedInstance().handle(url)
+
        }
+    
+    
     
     
     func applicationWillResignActive(_ application: UIApplication) {

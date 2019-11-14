@@ -18,11 +18,7 @@
 
 #import "FBSDKLoginError.h"
 
-#ifdef COCOAPODS
-#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
-#else
 #import "FBSDKCoreKit+Internal.h"
-#endif
 
 #ifndef NS_ERROR_ENUM
 #define NS_ERROR_ENUM(_domain, _name) \
@@ -49,7 +45,7 @@ typedef NS_ERROR_ENUM(FBSDKLoginErrorDomain, FBSDKLoginErrorSubcode)
 {
   NSMutableDictionary<NSString *, id> *userInfo = [NSMutableDictionary dictionary];
 
-  [FBSDKBasicUtility dictionary:userInfo setObject:innerError forKey:NSUnderlyingErrorKey];
+  [FBSDKInternalUtility dictionary:userInfo setObject:innerError forKey:NSUnderlyingErrorKey];
 
   NSString *errorDomain = FBSDKLoginErrorDomain;
   NSString *localizedDescription = nil;
@@ -90,8 +86,8 @@ typedef NS_ERROR_ENUM(FBSDKLoginErrorDomain, FBSDKLoginErrorSubcode)
       break;
   }
 
-  [FBSDKBasicUtility dictionary:userInfo setObject:localizedDescription forKey:NSLocalizedDescriptionKey];
-  [FBSDKBasicUtility dictionary:userInfo setObject:localizedDescription forKey:FBSDKErrorLocalizedDescriptionKey];
+  [FBSDKInternalUtility dictionary:userInfo setObject:localizedDescription forKey:NSLocalizedDescriptionKey];
+  [FBSDKInternalUtility dictionary:userInfo setObject:localizedDescription forKey:FBSDKErrorLocalizedDescriptionKey];
 
   return [NSError errorWithDomain:errorDomain
                              code:code
@@ -109,7 +105,7 @@ typedef NS_ERROR_ENUM(FBSDKLoginErrorDomain, FBSDKLoginErrorSubcode)
                                    failureReasonAndDescription, NSLocalizedDescriptionKey,
                                    nil];
 
-  [FBSDKBasicUtility dictionary:userInfo setObject:innerError forKey:NSUnderlyingErrorKey];
+  [FBSDKInternalUtility dictionary:userInfo setObject:innerError forKey:NSUnderlyingErrorKey];
 
   return [NSError errorWithDomain:FBSDKLoginErrorDomain
                              code:FBSDKLoginErrorPasswordChanged
@@ -121,14 +117,14 @@ typedef NS_ERROR_ENUM(FBSDKLoginErrorDomain, FBSDKLoginErrorSubcode)
   NSError *error = nil;
 
   NSMutableDictionary<NSString *, id> *userInfo = [[NSMutableDictionary alloc] init];
-  [FBSDKBasicUtility dictionary:userInfo setObject:parameters[@"error_message"] forKey:FBSDKErrorDeveloperMessageKey];
+  [FBSDKInternalUtility dictionary:userInfo setObject:parameters[@"error_message"] forKey:FBSDKErrorDeveloperMessageKey];
 
   if (userInfo.count > 0) {
-    [FBSDKBasicUtility dictionary:userInfo setObject:parameters[@"error"] forKey:FBSDKErrorDeveloperMessageKey];
-    [FBSDKBasicUtility dictionary:userInfo setObject:parameters[@"error_code"] forKey:FBSDKGraphRequestErrorGraphErrorCodeKey];
+    [FBSDKInternalUtility dictionary:userInfo setObject:parameters[@"error"] forKey:FBSDKErrorDeveloperMessageKey];
+    [FBSDKInternalUtility dictionary:userInfo setObject:parameters[@"error_code"] forKey:FBSDKGraphRequestErrorGraphErrorCodeKey];
 
     if (!userInfo[FBSDKErrorDeveloperMessageKey]) {
-      [FBSDKBasicUtility dictionary:userInfo setObject:parameters[@"error_reason"] forKey:FBSDKErrorDeveloperMessageKey];
+      [FBSDKInternalUtility dictionary:userInfo setObject:parameters[@"error_reason"] forKey:FBSDKErrorDeveloperMessageKey];
     }
 
     userInfo[FBSDKGraphRequestErrorKey] = @(FBSDKGraphRequestErrorOther);

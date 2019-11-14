@@ -22,18 +22,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- A reference implementation for an App Link resolver that uses a hidden WKWebView
+/*!
+ A reference implementation for an App Link resolver that uses a hidden UIWebView
  to parse the HTML containing App Link metadata.
  */
-NS_SWIFT_NAME(WebViewAppLinkResolver)
 @interface FBSDKWebViewAppLinkResolver : NSObject <FBSDKAppLinkResolving>
 
-/**
+/*!
  Gets the instance of a FBSDKWebViewAppLinkResolver.
  */
-@property (class, nonatomic, readonly, strong) FBSDKWebViewAppLinkResolver *sharedInstance
-NS_SWIFT_NAME(shared);
++ (instancetype)sharedInstance;
 
 @end
 

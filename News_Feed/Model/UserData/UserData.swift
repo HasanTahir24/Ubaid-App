@@ -14,13 +14,9 @@ class UserData {
     static fileprivate let USER_NAME: String = "USER_NAME"
     static fileprivate let USER_EMAIL: String = "USER_EMAIL"
     static fileprivate let USER_ID: String = "USER_ID"
+    static fileprivate let USER_LoginType = "USER_LoginType"
     static fileprivate let Access_token: String = "Access_token"
 
-   
-    
-    
-    
-    
    
     static func setUSER_ID(_ userId: String?){
         preference.setValue(userId, forKey: USER_ID )
@@ -41,6 +37,12 @@ class UserData {
         preference.setValue(userEmail, forKey: USER_EMAIL )
         preference.synchronize()
     }
+    
+    static func setUSER_LoginType(_ userLoginType : String?){
+    preference.setValue(userLoginType, forKey: USER_LoginType)
+           preference.synchronize()
+    
+    }
     static func getUSER_NAME() -> String?{
         return preference.string(forKey: USER_NAME)
     }
@@ -53,6 +55,10 @@ class UserData {
     static func getAccess_Token() -> String?{
            return preference.string(forKey: Access_token)
        }
+    
+    static func getUSER_LoginType() -> String?{
+        return preference.string(forKey:USER_LoginType)
+    }
     
     
     

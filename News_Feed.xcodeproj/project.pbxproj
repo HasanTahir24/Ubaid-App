@@ -28,6 +28,8 @@
 		18D89C1A235B21E3003560ED /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D89C18235B21E3003560ED /* NewsFeedCell.swift */; };
 		18D89C1B235B21E3003560ED /* NewsFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D89C19235B21E3003560ED /* NewsFeedCell.xib */; };
 		18D89C1D235B2410003560ED /* Roundimage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D89C1C235B2410003560ED /* Roundimage.swift */; };
+		1E093E35237D1FAB00AF0631 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E093E34237D1FAB00AF0631 /* FBSDKLoginKit.framework */; };
+		1E093E37237D1FCC00AF0631 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E093E36237D1FCC00AF0631 /* FBSDKCoreKit.framework */; };
 		1E2486C02373D33F002927CD /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2486BF2373D33E002927CD /* Authentication.storyboard */; };
 		1E2486C22373D6A9002927CD /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2486C12373D6A9002927CD /* RoundButton.swift */; };
 		1E2486C42373E634002927CD /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2486C32373E634002927CD /* RoundTextField.swift */; };
@@ -95,6 +97,10 @@
 		18D89C18235B21E3003560ED /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
 		18D89C19235B21E3003560ED /* NewsFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsFeedCell.xib; sourceTree = "<group>"; };
 		18D89C1C235B2410003560ED /* Roundimage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roundimage.swift; sourceTree = "<group>"; };
+		1E093E2D237D1DEC00AF0631 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E093E2E237D1DEC00AF0631 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E093E34237D1FAB00AF0631 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E093E36237D1FCC00AF0631 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E2486BF2373D33E002927CD /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1E2486C12373D6A9002927CD /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1E2486C32373E634002927CD /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E093E37237D1FCC00AF0631 /* FBSDKCoreKit.framework in Frameworks */,
+				1E093E35237D1FAB00AF0631 /* FBSDKLoginKit.framework in Frameworks */,
 				C14837901C436B68FE925853 /* Pods_News_Feed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +347,10 @@
 		274244413D78AEF097FE9852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E093E36237D1FCC00AF0631 /* FBSDKCoreKit.framework */,
+				1E093E34237D1FAB00AF0631 /* FBSDKLoginKit.framework */,
+				1E093E2D237D1DEC00AF0631 /* FBSDKCoreKit.framework */,
+				1E093E2E237D1DEC00AF0631 /* FBSDKLoginKit.framework */,
 				72C0A2F6EC081D312B7B9649 /* Pods_News_Feed.framework */,
 				57FFBBDE379B5EF9FB89F633 /* Pods_News_Feed_News_FeedUITests.framework */,
 				81422635832173912D7BC04F /* Pods_News_FeedTests.framework */,
@@ -371,6 +383,7 @@
 				18D89BE1235AFBA7003560ED /* Frameworks */,
 				18D89BE2235AFBA7003560ED /* Resources */,
 				5F5F051F177487351174C88A /* [CP] Embed Pods Frameworks */,
+				E347989836465AEA44B21770 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -409,6 +422,7 @@
 				18D89C03235AFBB0003560ED /* Frameworks */,
 				18D89C04235AFBB0003560ED /* Resources */,
 				D1B03C90E70CD4C6B0171BFD /* [CP] Embed Pods Frameworks */,
+				8B677735B3CEC6E7F5BF4B79 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -579,6 +593,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-News_Feed/Pods-News_Feed-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B677735B3CEC6E7F5BF4B79 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-News_Feed-News_FeedUITests/Pods-News_Feed-News_FeedUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-News_Feed-News_FeedUITests/Pods-News_Feed-News_FeedUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-News_Feed-News_FeedUITests/Pods-News_Feed-News_FeedUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D1B03C90E70CD4C6B0171BFD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -594,6 +625,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-News_Feed-News_FeedUITests/Pods-News_Feed-News_FeedUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E347989836465AEA44B21770 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-News_Feed/Pods-News_Feed-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-News_Feed/Pods-News_Feed-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-News_Feed/Pods-News_Feed-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -742,6 +790,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -796,6 +845,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -804,9 +854,27 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2824586C1AEAD6577C74DEB7 /* Pods-News_Feed.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QZ9NFR3HX;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AlamofireImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKCoreKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBSDKLoginKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMAppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/MobilePlayer\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Player\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZKProgressHUD\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+				);
 				INFOPLIST_FILE = News_Feed/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -824,6 +892,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5790EC11404253C592014F3 /* Pods-News_Feed.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QZ9NFR3HX;
