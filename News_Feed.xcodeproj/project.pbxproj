@@ -12,7 +12,7 @@
 		1828F9B1235CD333004D5CCD /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828F9AF235CD333004D5CCD /* StoriesCell.swift */; };
 		18436B87237F0BA5009B9246 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436B86237F0BA5009B9246 /* ForgetPasswordController.swift */; };
 		18436B8D237F0E1E009B9246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436B8C237F0E1E009B9246 /* ViewController.swift */; };
-		18436B93237F1661009B9246 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436B92237F1661009B9246 /* IntroController.swift */; };
+		18436B96237F19C3009B9246 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18436B95237F19C3009B9246 /* IntroController.swift */; };
 		184437B02371F24C002868D4 /* PostWithLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184437AE2371F24C002868D4 /* PostWithLinkCell.swift */; };
 		184437B12371F24C002868D4 /* PostWithLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184437AF2371F24C002868D4 /* PostWithLinkCell.xib */; };
 		184437B32371F7E3002868D4 /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184437B22371F7E3002868D4 /* DesignView.swift */; };
@@ -79,7 +79,7 @@
 		1828F9AF235CD333004D5CCD /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
 		18436B86237F0BA5009B9246 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 		18436B8C237F0E1E009B9246 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		18436B92237F1661009B9246 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntroController.swift; path = ../../../../../IntroController.swift; sourceTree = "<group>"; };
+		18436B95237F19C3009B9246 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		184437AE2371F24C002868D4 /* PostWithLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostWithLinkCell.swift; sourceTree = "<group>"; };
 		184437AF2371F24C002868D4 /* PostWithLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostWithLinkCell.xib; sourceTree = "<group>"; };
 		184437B22371F7E3002868D4 /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
@@ -173,10 +173,10 @@
 			path = NewsFeed;
 			sourceTree = "<group>";
 		};
-		18436B91237F163C009B9246 /* Introduction */ = {
+		18436B94237F198D009B9246 /* Introduction */ = {
 			isa = PBXGroup;
 			children = (
-				18436B92237F1661009B9246 /* IntroController.swift */,
+				18436B95237F19C3009B9246 /* IntroController.swift */,
 			);
 			path = Introduction;
 			sourceTree = "<group>";
@@ -197,7 +197,7 @@
 		184437AB2371F170002868D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18436B91237F163C009B9246 /* Introduction */,
+				18436B94237F198D009B9246 /* Introduction */,
 				18436B8B237F0E06009B9246 /* NewsFeed */,
 				18EB6CE6237DEFCB00296E6C /* Authentication */,
 			);
@@ -695,7 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18436B93237F1661009B9246 /* IntroController.swift in Sources */,
+				18436B96237F19C3009B9246 /* IntroController.swift in Sources */,
 				1E2486C22373D6A9002927CD /* RoundButton.swift in Sources */,
 				1E3221DE2375A5220033D214 /* AuthenticationModel.swift in Sources */,
 				1E3221E22375BAA20033D214 /* SignUpController.swift in Sources */,
