@@ -11,7 +11,7 @@ import Foundation
 class ForgetPasswordModel {
     
     struct forgetPasswordSuccessModel : Codable {
-        let api_status = Int
+        let api_status : Int
     }
     
     

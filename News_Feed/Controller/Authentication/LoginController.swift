@@ -29,7 +29,8 @@ class LoginController: UIViewController {
         self.fbLoginBtn.titleLabel?.textAlignment = .center
         self.fbLoginBtn.setTitle("Continue with Facebook", for: .normal)
         self.fbLoginBtn.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 15.0)
-        
+        GIDSignIn.sharedInstance().presentingViewController = self
+
         
     }
     
@@ -83,6 +84,8 @@ class LoginController: UIViewController {
     
     
     @IBAction func GoogleSignin(_ sender : Any){
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().signIn()
         
     }
     
@@ -236,10 +239,10 @@ extension LoginController : GIDSignInDelegate{
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if error == nil {
             let userId = user.userID
-            let idToken = user.authentication.accessToken  // Safe to send to
-            print("user auth = \(user.authentication.accessToken)")
+            let idToken = user.authentication.accessToken
+            print("user auth " ,idToken)
             let token = user.authentication.accessToken ?? ""
-            socialLogin(accesstoken: token, provider: "google", googleKey: "")
+            socialLogin(accesstoken: token, provider: "google", googleKey: "AIzaSyDo-tKjkOFkb5yl2n_dxPNJngDdFWNrFMk")
         }
         else {
             ZKProgressHUD.dismiss()

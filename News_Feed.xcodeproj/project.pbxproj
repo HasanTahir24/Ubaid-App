@@ -36,6 +36,7 @@
 		1E2486C02373D33F002927CD /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E2486BF2373D33E002927CD /* Authentication.storyboard */; };
 		1E2486C22373D6A9002927CD /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2486C12373D6A9002927CD /* RoundButton.swift */; };
 		1E2486C42373E634002927CD /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2486C32373E634002927CD /* RoundTextField.swift */; };
+		1E2AD0A7237EBD0700D35A79 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2AD0A6237EBD0700D35A79 /* Function.swift */; };
 		1E2B4347235EC5F4004A2F8F /* Get_News_FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B4346235EC5F4004A2F8F /* Get_News_FeedModel.swift */; };
 		1E2B4349235EC6EC004A2F8F /* Get_News_Feed_Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B4348235EC6EC004A2F8F /* Get_News_Feed_Managers.swift */; };
 		1E2B434E235ECD51004A2F8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B434D235ECD51004A2F8F /* Utils.swift */; };
@@ -110,6 +111,7 @@
 		1E2486BF2373D33E002927CD /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		1E2486C12373D6A9002927CD /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		1E2486C32373E634002927CD /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		1E2AD0A6237EBD0700D35A79 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		1E2B4346235EC5F4004A2F8F /* Get_News_FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get_News_FeedModel.swift; sourceTree = "<group>"; };
 		1E2B4348235EC6EC004A2F8F /* Get_News_Feed_Managers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get_News_Feed_Managers.swift; sourceTree = "<group>"; };
 		1E2B434D235ECD51004A2F8F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				184437B22371F7E3002868D4 /* DesignView.swift */,
 				1E2486C12373D6A9002927CD /* RoundButton.swift */,
 				1E2486C32373E634002927CD /* RoundTextField.swift */,
+				1E2AD0A6237EBD0700D35A79 /* Function.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				188CA27D23789332006773F2 /* ImageSliderController.swift in Sources */,
 				1E2B6BB62379237900612383 /* ColorHexa.swift in Sources */,
 				1E3221E02375BA6D0033D214 /* LoginController.swift in Sources */,
+				1E2AD0A7237EBD0700D35A79 /* Function.swift in Sources */,
 				1E2B4347235EC5F4004A2F8F /* Get_News_FeedModel.swift in Sources */,
 				1E2486C42373E634002927CD /* RoundTextField.swift in Sources */,
 				1E2B4354235EDC05004A2F8F /* AlertExtension.swift in Sources */,

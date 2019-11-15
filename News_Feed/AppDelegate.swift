@@ -11,6 +11,8 @@ import CoreData
 import IQKeyboardManager
 import FBSDKLoginKit
 import GoogleSignIn
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnabled = true
         self.window = UIWindow(frame: UIScreen.main.bounds)
         GIDSignIn.sharedInstance().clientID = "149627362592-oc3rvhbldv7g6jj91rh2664qhjo2mgis.apps.googleusercontent.com"
+        GMSServices.provideAPIKey("AIzaSyDo-tKjkOFkb5yl2n_dxPNJngDdFWNrFMk")
+        GMSPlacesClient.provideAPIKey("AIzaSyDo-tKjkOFkb5yl2n_dxPNJngDdFWNrFMk")
+        
+        
         
         if (UserData.getUSER_ID() != nil)  {
             print(UserData.getUSER_ID())
