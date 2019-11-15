@@ -793,7 +793,7 @@
                                 </constraints>
                                 <state key="normal" image="gotoNext"/>
                                 <connections>
-                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="eeJ-Yo-r1d"/>
+                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="9nb-KW-0NJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un2-Lv-WxI">
@@ -804,7 +804,7 @@
                                 </constraints>
                                 <state key="normal" image="arrow-pointing"/>
                                 <connections>
-                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="mVD-cN-8nm"/>
+                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="mJ4-V4-kfM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -826,10 +826,10 @@
                         <viewLayoutGuide key="safeArea" id="QCf-FZ-jYs"/>
                     </view>
                     <connections>
-                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="RBY-gq-yS3"/>
-                        <outlet property="pageController" destination="hLc-o5-Hxf" id="nMX-kw-f55"/>
-                        <outlet property="scrollView" destination="x0U-OM-mAW" id="XxT-W1-CCg"/>
-                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="qhC-3P-oLo"/>
+                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="WCX-N0-ULi"/>
+                        <outlet property="pageController" destination="hLc-o5-Hxf" id="Nwz-Nc-csa"/>
+                        <outlet property="scrollView" destination="x0U-OM-mAW" id="xim-qD-RQD"/>
+                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="Z8f-hy-LCq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-uH-IUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
