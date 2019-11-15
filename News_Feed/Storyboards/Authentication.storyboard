@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +75,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="0uy-9p-PzE">
-                                <rect key="frame" x="67" y="98" width="280" height="150"/>
+                                <rect key="frame" x="67" y="98" width="280" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="efc-jA-ER2"/>
                                 </constraints>
@@ -116,19 +118,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forget  your Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZo-sJ-RjL">
-                                <rect key="frame" x="20" y="166" width="237.5" height="25.5"/>
+                                <rect key="frame" x="20" y="122" width="237.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't worry type your email here and we will recover it for you" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVo-UP-gme">
-                                <rect key="frame" x="20" y="199.5" width="384" height="40"/>
+                                <rect key="frame" x="20" y="155.5" width="384" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_email" translatesAutoresizingMaskIntoConstraints="NO" id="gz0-c5-lh9">
-                                <rect key="frame" x="0.0" y="269.5" width="60" height="60"/>
+                                <rect key="frame" x="0.0" y="225.5" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="gYw-d6-CGF"/>
@@ -136,7 +138,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please write your email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUL-Kq-XWf" customClass="RoundTextField" customModule="News_Feed" customModuleProvider="target">
-                                <rect key="frame" x="60" y="287" width="344" height="25"/>
+                                <rect key="frame" x="60" y="243" width="344" height="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -150,7 +152,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCT-cu-l4W" customClass="RoundButton" customModule="News_Feed" customModuleProvider="target">
-                                <rect key="frame" x="20" y="412" width="374" height="45"/>
+                                <rect key="frame" x="20" y="368" width="374" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Zn9-PI-8de"/>
@@ -171,18 +173,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="Send:" destination="Rkn-c5-VtQ" eventType="touchUpInside" id="U4Z-ZU-xGP"/>
+                                    <action selector="Send:" destination="Rkn-c5-VtQ" eventType="touchUpInside" id="4YR-78-Kma"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFQ-bv-IrB">
-                                <rect key="frame" x="0.0" y="88" width="70" height="70"/>
+                                <rect key="frame" x="0.0" y="44" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ERo-jf-75h"/>
                                     <constraint firstAttribute="width" constant="70" id="dYD-oO-wSd"/>
                                 </constraints>
                                 <state key="normal" image="ic_back"/>
                                 <connections>
-                                    <action selector="Back:" destination="Rkn-c5-VtQ" eventType="touchUpInside" id="yYt-RD-ogr"/>
+                                    <action selector="Back:" destination="Rkn-c5-VtQ" eventType="touchUpInside" id="ODm-oA-UrM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -208,8 +210,8 @@
                         <viewLayoutGuide key="safeArea" id="dkx-Qt-4AZ"/>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="jUL-Kq-XWf" id="eDa-ei-BOb"/>
-                        <outlet property="sendBtn" destination="dCT-cu-l4W" id="quA-24-CwN"/>
+                        <outlet property="emailField" destination="jUL-Kq-XWf" id="02D-pE-yvO"/>
+                        <outlet property="sendBtn" destination="dCT-cu-l4W" id="K0A-s2-gus"/>
                         <segue destination="HWk-IA-SvR" kind="presentation" identifier="ErrorVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="2nZ-yG-y2Q"/>
                     </connections>
                 </viewController>
@@ -395,7 +397,6 @@
                         <outlet property="userNameField" destination="FKC-30-0dA" id="teb-Jk-B9A"/>
                         <segue destination="HWk-IA-SvR" kind="presentation" identifier="ErrorVC" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="f5a-al-SAG"/>
                         <segue destination="zsp-ks-pVR" kind="show" identifier="imageSlider" id="csa-qA-5cW"/>
-                        <segue destination="Rkn-c5-VtQ" kind="show" identifier="ForgetPasswordVC" id="5vH-xC-DIk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPU-uh-bQZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -792,7 +793,7 @@
                                 </constraints>
                                 <state key="normal" image="gotoNext"/>
                                 <connections>
-                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="jlc-8R-ylM"/>
+                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="eeJ-Yo-r1d"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un2-Lv-WxI">
@@ -803,7 +804,7 @@
                                 </constraints>
                                 <state key="normal" image="arrow-pointing"/>
                                 <connections>
-                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="u7P-Uu-laP"/>
+                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="mVD-cN-8nm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -825,10 +826,10 @@
                         <viewLayoutGuide key="safeArea" id="QCf-FZ-jYs"/>
                     </view>
                     <connections>
-                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="R9L-OD-utq"/>
-                        <outlet property="pageController" destination="hLc-o5-Hxf" id="3dk-NM-h2w"/>
-                        <outlet property="scrollView" destination="x0U-OM-mAW" id="kDF-kF-DNN"/>
-                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="7ON-ll-Ib7"/>
+                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="RBY-gq-yS3"/>
+                        <outlet property="pageController" destination="hLc-o5-Hxf" id="nMX-kw-f55"/>
+                        <outlet property="scrollView" destination="x0U-OM-mAW" id="XxT-W1-CCg"/>
+                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="qhC-3P-oLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-uH-IUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -865,7 +866,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9hx-BB-uKr"/>
-        <segue reference="Wrt-JD-7DS"/>
+        <segue reference="2nZ-yG-y2Q"/>
         <segue reference="Sp9-Lh-920"/>
     </inferredMetricsTieBreakers>
 </document>
