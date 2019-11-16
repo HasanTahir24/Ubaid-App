@@ -9,8 +9,6 @@
 import UIKit
 import ZKProgressHUD
 
-
-
 class ForgetPasswordController: UIViewController {
     
     @IBOutlet weak var emailField: RoundTextField!
@@ -47,14 +45,14 @@ class ForgetPasswordController: UIViewController {
     @IBAction func Send(_ sender: Any) {
         if self.emailField.text!.isEmpty == true {
             print("Error")
-            //            self.error = "Please Enter Your Email"
-            //            self.performSegue(withIdentifier: "ErrorVC", sender: self)
+//            self.error = "Please Enter Your Email"
+//            self.performSegue(withIdentifier: "ErrorVC", sender: self)
         }
         else if !(isValidEmail(testStr: self.emailField.text!)){
             
             self.error = "Please Write your Full email address"
             self.performSegue(withIdentifier: "ErrorVC", sender: self)
-        }
+            }
             
             
         else {

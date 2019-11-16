@@ -47,13 +47,21 @@ class SignUpController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    
+    var check = 0
     @IBAction func Check(_ sender: Any) {
+        if check == 0 {
+            self.checkBtn.setImage(UIImage(named: "ic_check"), for: .normal)
+        check = 1
+        }
+        else{
+            self.checkBtn.setImage(UIImage(named: "ic_uncheck"), for: .normal)
+            check = 0
+        }
     }
     
     
     @IBAction func Register(_ sender: Any) {
-        if self.userNameField.text?.isEmpty == true {
+      if self.userNameField.text?.isEmpty == true {
             self.error = "Error, Required Username"
             self.performSegue(withIdentifier: "ErrorVC", sender: self)
         }
@@ -72,6 +80,11 @@ class SignUpController: UIViewController {
             self.performSegue(withIdentifier: "ErrorVC", sender: self)
             
         }
+        
+      else if self.checkBtn.currentImage == UIImage(named: "ic_uncheck"){
+        self.error = "Please read terms of services"
+        self.performSegue(withIdentifier: "ErrorVC", sender: self)
+      }
             
         else {
             ZKProgressHUD.show("Loading")
