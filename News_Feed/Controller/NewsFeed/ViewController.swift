@@ -22,10 +22,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
-    var array = [datas]()
-    
-    
+//    var array = [datas]()
     var newsFeedArray = [[String:Any]]()
+    var filterFeedArray = [[String:Any]]()
+    var limit = 10
+    let spinner = UIActivityIndicatorView(style: .gray)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +35,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.networkStatusChanged(_:)), name: Notification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
         Reach().monitorReachabilityChanges()
-        // ZKProgressHUD.show("Loading")
+         ZKProgressHUD.show("Loading")
         
         
         
         
         tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: "NewsFeedCell")
         tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "musicCell")
-        //self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
+//        self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
+        self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
     }
     
     
@@ -78,6 +81,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         else  {
             let index = self.newsFeedArray[indexPath.row]
+            print("PrintIndex",index)
             //
             var cellIdentefier = ""
             var tableViewCells = UITableViewCell()
@@ -125,6 +129,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 cell.heigthConstraint.constant = 0
                             }
                             
+                            cell.layoutIfNeeded()
+                            
                         }
                         cellIdentefier = "NewsFeedCell"
                         tableViewCells = cell
@@ -148,6 +154,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                         
                         if let textStatus = index["postText"] as? String {
                             cell.statusLabel.text! = textStatus.htmlToString
+                    
                         }
                         
                         cell.loadMp3(url: postfile)
@@ -200,6 +207,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        //Bottom Refresh
+        
+        if scrollView == tableView{
+            
+            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
+            {
+                spinner.startAnimating()
+                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+                self.limit = self.limit + 10
+                self.tableView.tableFooterView = spinner
+                self.tableView.tableFooterView?.isHidden = false
+                self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
+            }
+        }
+    }
+    
+    
+    
     //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     //        if indexPath.section  == 0 {
     //            return 100
@@ -230,7 +257,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //    }
     
     
-    private func getNewsFeed (access_token : String) {
+    private func getNewsFeed (access_token : String, limit : Int) {
         
         let status = Reach().connectionStatus()
         switch status {
@@ -239,13 +266,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             showAlert(title: "", message: "Internet Connection Failed")
             
         case .online(.wwan), .online(.wiFi):
-            GetNewsFeedManagers.sharedInstance.get_News_Feed(access_token: access_token) {[weak self] (success, authError, error) in
+            GetNewsFeedManagers.sharedInstance.get_News_Feed(access_token: access_token, limit: limit) {[weak self] (success, authError, error) in
                 if success != nil {
                     for i in success!.data{
-                        self?.newsFeedArray.append(i)
+                        self?.filterFeedArray.append(i)
+//                        self?.newsFeedArray.append(i)
                         
                     }
                     
+                    let arraySlice = self?.filterFeedArray.suffix(10)
+                    let newArray = Array(arraySlice!)
+                    self?.newsFeedArray = newArray
+                    
+                    self?.spinner.stopAnimating()
+                    self?.tableView.tableFooterView?.isHidden = true
                     self?.tableView.reloadData()
                     ZKProgressHUD.dismiss()
                     print(self?.newsFeedArray.count)

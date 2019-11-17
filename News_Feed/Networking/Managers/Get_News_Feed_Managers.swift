@@ -11,10 +11,10 @@ import Alamofire
 
 class GetNewsFeedManagers{
     
-    func get_News_Feed(access_token : String,completionBlock : @escaping (_ Success:Get_News_FeedModel.get_News_Feed_SuccessModel?, _ AuthError : Get_News_FeedModel.get_News_Feed_ErrorModel? , Error?)->()){
+    func get_News_Feed(access_token : String, limit : Int ,completionBlock : @escaping (_ Success:Get_News_FeedModel.get_News_Feed_SuccessModel?, _ AuthError : Get_News_FeedModel.get_News_Feed_ErrorModel? , Error?)->()){
         
         
-        let body = [APIClient.Params.serverKey : APIClient.SERVER_KEY.Server_Key, APIClient.Params.type : "get_news_feed", APIClient.Params.limit : 10] as [String : Any]
+        let body = [APIClient.Params.serverKey : APIClient.SERVER_KEY.Server_Key, APIClient.Params.type : "get_news_feed", APIClient.Params.limit : limit] as [String : Any]
         Alamofire.request(APIClient.Get_News_Feed.get_News_Feed_Posts + access_token, method: .post, parameters: body, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             if response.result.value != nil {
                 guard let res = response.result.value as? [String:Any] else {return}
