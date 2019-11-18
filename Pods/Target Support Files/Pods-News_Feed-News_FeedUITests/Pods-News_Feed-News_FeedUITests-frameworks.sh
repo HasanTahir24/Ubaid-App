@@ -174,6 +174,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MobilePlayer/MobilePlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZKProgressHUD/ZKProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -190,6 +191,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MobilePlayer/MobilePlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZKProgressHUD/ZKProgressHUD.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

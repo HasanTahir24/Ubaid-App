@@ -16,13 +16,14 @@ target 'News_Feed' do
    pod 'Player'
 #   4.31.1
 #   '~> 4.35'
-    pod 'FBSDKCoreKit'
-    pod 'FBSDKLoginKit'
+    pod 'FBSDKCoreKit',  '~> 4.35'
+    pod 'FBSDKLoginKit',  '~> 4.35'
    pod 'IQKeyboardManager' #iOS8 and later
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+   pod 'YouTubePlayer'
 
   target 'News_FeedTests' do
     inherit! :search_paths

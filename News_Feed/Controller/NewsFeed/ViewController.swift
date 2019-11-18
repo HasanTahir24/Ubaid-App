@@ -42,6 +42,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: "NewsFeedCell")
         tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "musicCell")
+        tableView.register(UINib(nibName: "PostWithLinkCell", bundle: nil), forCellReuseIdentifier: "PostLinkCell")
 //        self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
         self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
     }
@@ -86,117 +87,54 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             var cellIdentefier = ""
             var tableViewCells = UITableViewCell()
             if let postfile = index["postFile"] as? String  {
+               
                 
-                if postfile != ""{
+                if postfile != "" || postfile != nil {
                     let url = URL(string: postfile)
                     let urlExtension: String? = url?.pathExtension
                     if (urlExtension == "jpg" || urlExtension == "png" || urlExtension == "jpeg"){
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
-                        self.tableView.rowHeight = UITableView.automaticDimension
-                        self.tableView.estimatedRowHeight = UITableView.automaticDimension
-                        cell.videoView.isHidden = true
-                        if let time = index["postTime"] as? String{
-                            cell.timeLabel.text! = time
-                        }
-                        if let textStatus = index["postText"] as? String {
-                            cell.statusLabel.text! = textStatus.htmlToString
-                        }
-                        if let name = index["publisher"] as? [String:Any] {
-                            if let profilename = name["name"] as? String{
-                                cell.profileName.text! = profilename
-                            }
-                            if let avatarUrl =  name["avatar"] as? String {
-                                let url = URL(string: avatarUrl)
-                                cell.profileImage.kf.setImage(with: url)
-                                
-                            }
-                        }
                         
-                        
-                        cell.stausimage.sd_setImage(with: url, placeholderImage: nil, options: []) {[weak self] (image, error, casheh, url) in
-                            if image != nil {
-                                DispatchQueue.main.async {
-                                    let ratio = image!.size.width / image!.size.height
-                                    let newHeight = cell.stausimage.frame.width / ratio
-                                    cell.heigthConstraint.constant = newHeight
-                                    
-                                    cell.stausimage.frame.size = CGSize(width: cell.contentView.frame.width, height:cell.heigthConstraint.constant)
-                                }
-                                
-                            }
-                                
-                            else {
-                                cell.heigthConstraint.constant = 0
-                            }
-                            
-                            cell.layoutIfNeeded()
-                            
-                        }
-                        cellIdentefier = "NewsFeedCell"
-                        tableViewCells = cell
+      
+                tableViewCells = GetPosts.getPostImage(tableView: tableView, indexpath: indexPath, postFile:  postfile , array: self.newsFeedArray, url: url!)
+                    
                     }
+                   
                     else if( urlExtension == ".wav" ||  urlExtension == ".mp3"){
                         let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
                         
-                        if let name = index["publisher"] as? [String:Any] {
-                            if let profilename = name["name"] as? String{
-                                cell.nameLabel.text! = profilename
-                            }
-                            if let avatarUrl =  name["avatar"] as? String {
-                                let url = URL(string: avatarUrl)
-                                cell.avatarImage.kf.setImage(with: url)
-                                
-                            }
-                        }
-                        if let time = index["postTime"] as? String{
-                            cell.timeLabel.text! = time
-                        }
                         
-                        if let textStatus = index["postText"] as? String {
-                            cell.statusLabel.text! = textStatus.htmlToString
+                        
+                tableViewCells = GetPosts.getMP3(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                     
-                        }
-                        
-                        cell.loadMp3(url: postfile)
-                        self.tableView.rowHeight = 200
-                        cellIdentefier = "musicCell"
-                        tableViewCells = cell
-                    }
+                }
+                    
                     
                     
                 }
+                    
+          
+                
                 else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
                     
-                    if let name = index["publisher"] as? [String:Any] {
-                        if let profilename = name["name"] as? String{
-                            cell.profileName.text! = profilename
-                        }
-                        
-                        if let avatarUrl =  name["avatar"] as? String {
-                            let url = URL(string: avatarUrl)
-                            cell.profileImage.kf.setImage(with: url)
-                            
-                        }
-                    }
-                    if let time = index["postTime"] as? String{
-                        cell.timeLabel.text! = time
-                    }
-                    if let textStatus = index["postText"] as? String {
-                        cell.statusLabel.text! = textStatus.htmlToString
-                        
-                    }
-                    
-                    cell.videoView.isHidden = true
-                    cell.heigthConstraint.constant = 0
-                    self.tableView.rowHeight = UITableView.automaticDimension
-                    self.tableView.estimatedRowHeight = UITableView.automaticDimension
-                    cellIdentefier = "NewsFeedCell"
-                    tableViewCells = cell
+
+                tableViewCells = GetPosts.getPostText(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                 }
                 
                 
             }
+            
+            if let postLink = index["postLink"] as? String{
+                if (postLink != "") || (postLink == nil) {
+                    
+        tableViewCells = GetPosts.getPostLink(tableView: tableView, indexpath: indexPath, postLink: postLink, array: self.newsFeedArray)
+                    
+                }
+                
+                
+                
+                
+            }
+            
             
             
             
@@ -207,23 +145,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        //Bottom Refresh
+          let count = self.newsFeedArray.count
+          let lastElement = count - 2
         
-        if scrollView == tableView{
+        if indexPath.row == lastElement {
+            self.limit = self.limit + 10
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+            self.tableView.tableFooterView = spinner
+
+            self.tableView.tableFooterView?.isHidden = false
+            self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
+
             
-            if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height)
-            {
-                spinner.startAnimating()
-                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-                self.limit = self.limit + 10
-                self.tableView.tableFooterView = spinner
-                self.tableView.tableFooterView?.isHidden = false
-                self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
-            }
         }
+    
     }
+    
     
     
     
@@ -276,10 +216,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     
                     let arraySlice = self?.filterFeedArray.suffix(10)
                     let newArray = Array(arraySlice!)
-                    self?.newsFeedArray = newArray
+                    for j in newArray {
+                        self?.newsFeedArray.append(j)
+                    }
                     
                     self?.spinner.stopAnimating()
-                    self?.tableView.tableFooterView?.isHidden = true
+//                    self?.tableView.tableFooterView?.isHidden = true
                     self?.tableView.reloadData()
                     ZKProgressHUD.dismiss()
                     print(self?.newsFeedArray.count)

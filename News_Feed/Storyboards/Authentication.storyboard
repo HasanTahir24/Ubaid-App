@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yBt-sh-qEV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-EO-rEA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-EO-rEA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-Cx-LnS">
@@ -227,7 +225,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBg" translatesAutoresizingMaskIntoConstraints="NO" id="2n5-Lu-Hgm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2n5-Lu-Hgm">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yP6-P8-q07">
@@ -770,10 +768,10 @@
             </objects>
             <point key="canvasLocation" x="-1023" y="-707"/>
         </scene>
-        <!--Image Slider Controller-->
+        <!--Intro Controller-->
         <scene sceneID="TNa-rt-5hI">
             <objects>
-                <viewController id="zsp-ks-pVR" customClass="ImageSliderController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zsp-ks-pVR" customClass="IntroController" customModule="News_Feed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDf-mf-589">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -796,7 +794,7 @@
                                 </constraints>
                                 <state key="normal" image="gotoNext"/>
                                 <connections>
-                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="AC9-SO-XrJ"/>
+                                    <action selector="Skip:" destination="zsp-ks-pVR" eventType="touchUpInside" id="baM-42-UMD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un2-Lv-WxI">
@@ -807,7 +805,7 @@
                                 </constraints>
                                 <state key="normal" image="arrow-pointing"/>
                                 <connections>
-                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="zeU-Bm-YUu"/>
+                                    <action selector="Next:" destination="zsp-ks-pVR" eventType="touchUpInside" id="pDY-b4-Y2T"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -829,10 +827,10 @@
                         <viewLayoutGuide key="safeArea" id="QCf-FZ-jYs"/>
                     </view>
                     <connections>
-                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="nUk-6O-ixh"/>
-                        <outlet property="pageController" destination="hLc-o5-Hxf" id="dBd-IH-YOI"/>
-                        <outlet property="scrollView" destination="x0U-OM-mAW" id="OxX-3a-GF8"/>
-                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="gVg-Kv-j4l"/>
+                        <outlet property="nextImageBtn" destination="Un2-Lv-WxI" id="ftV-8Z-gj7"/>
+                        <outlet property="pageController" destination="hLc-o5-Hxf" id="DKL-5u-bpz"/>
+                        <outlet property="scrollView" destination="x0U-OM-mAW" id="jzE-4s-Sx3"/>
+                        <outlet property="skipBtn" destination="A02-Ef-lvQ" id="4z6-Cf-ZGI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Csg-uH-IUM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -864,7 +862,7 @@
         <image name="ic_back" width="96" height="96"/>
         <image name="ic_email" width="96" height="96"/>
         <image name="ic_uncheck" width="96" height="96"/>
-        <image name="loginBg" width="500" height="889"/>
+        <image name="loginBackground" width="500" height="889"/>
         <image name="logo" width="468" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
