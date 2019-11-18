@@ -84,60 +84,33 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let index = self.newsFeedArray[indexPath.row]
             print("PrintIndex",index)
             //
-            var cellIdentefier = ""
             var tableViewCells = UITableViewCell()
-            if let postfile = index["postFile"] as? String  {
-               
-                
-                if postfile != "" || postfile != nil {
-                    let url = URL(string: postfile)
-                    let urlExtension: String? = url?.pathExtension
-                    if (urlExtension == "jpg" || urlExtension == "png" || urlExtension == "jpeg"){
-                        
-      
-                tableViewCells = GetPosts.getPostImage(tableView: tableView, indexpath: indexPath, postFile:  postfile , array: self.newsFeedArray, url: url!)
+            let postfile = index["postFile"] as? String ?? ""
+            let postLink = index["postLink"] as? String ?? ""
+            
+            if postfile != ""  {
+                let url = URL(string: postfile)
+                let urlExtension: String? = url?.pathExtension
+                if (urlExtension == "jpg" || urlExtension == "png" || urlExtension == "jpeg"){
                     
-                    }
-                   
-                    else if( urlExtension == ".wav" ||  urlExtension == ".mp3"){
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
-                        
-                        
-                        
-                tableViewCells = GetPosts.getMP3(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                     
+                    tableViewCells = GetPosts.getPostImage(tableView: tableView, indexpath: indexPath, postFile:  postfile , array: self.newsFeedArray, url: url!)
                 }
                     
-                    
+                else if( urlExtension == ".wav" ||  urlExtension == ".mp3"){
+                    tableViewCells = GetPosts.getMP3(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                     
                 }
-                    
-          
-                
                 else {
-                    
-
-                tableViewCells = GetPosts.getPostText(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
+                    tableViewCells = GetPosts.getPostText(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                 }
+            }
                 
+            else if postLink != "" {
+                tableViewCells = GetPosts.getPostLink(tableView: tableView, indexpath: indexPath, postLink: postLink, array: self.newsFeedArray)
                 
             }
-            
-            if let postLink = index["postLink"] as? String{
-                if (postLink != "") || (postLink == nil) {
-                    
-        tableViewCells = GetPosts.getPostLink(tableView: tableView, indexpath: indexPath, postLink: postLink, array: self.newsFeedArray)
-                    
-                }
-                
-                
-                
-                
-            }
-            
-            
-            
-            
+            //
             return tableViewCells
             
         }

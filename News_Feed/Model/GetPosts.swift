@@ -23,7 +23,7 @@ class GetPosts {
         cell.videoView.isHidden = true
         
         
-        if let time = index["postTime"] as? String{
+        if let time = index["post_time"] as? String{
             cell.timeLabel.text! = time
         }
         
@@ -62,7 +62,7 @@ class GetPosts {
             cell.layoutIfNeeded()
             
             
-           
+            
         }
         
         return cell
@@ -80,7 +80,7 @@ class GetPosts {
         
         
         
-        if let time = index["postTime"] as? String{
+        if let time = index["post_time"] as? String{
             cell.timeLabel.text! = time
         }
         
@@ -101,16 +101,16 @@ class GetPosts {
         }
         
         
-    cell.layoutIfNeeded()
+        cell.layoutIfNeeded()
         
-     return cell
+        return cell
         
     }
     
     
     static func getMP3 (tableView : UITableView, indexpath:IndexPath, postFile : String, array : [[String:Any]]) -> UITableViewCell {
         let index = array[indexpath.row]
-      let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "musicCell") as! MusicCell
         
         
         if let name = index["publisher"] as? [String:Any] {
@@ -136,11 +136,13 @@ class GetPosts {
         tableView.rowHeight = 200
         
         return cell
-
+        
     }
     
     static func getPostLink(tableView : UITableView, indexpath:IndexPath, postLink : String, array : [[String:Any]]) -> UITableViewCell {
         let index = array[indexpath.row]
+        tableView.rowHeight = 550
+        //        tableView.estimatedRowHeight = UITableView.automaticDimension
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostLinkCell") as! PostWithLinkCell
         
         if let name = index["publisher"] as? [String:Any] {
@@ -176,8 +178,7 @@ class GetPosts {
         }
         
         
-        
-    return cell
+        return cell
         
     }
     
