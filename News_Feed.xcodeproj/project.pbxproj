@@ -51,6 +51,8 @@
 		1E3221DE2375A5220033D214 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221DD2375A5220033D214 /* AuthenticationModel.swift */; };
 		1E3221E02375BA6D0033D214 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221DF2375BA6D0033D214 /* LoginController.swift */; };
 		1E3221E22375BAA20033D214 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3221E12375BAA20033D214 /* SignUpController.swift */; };
+		1E324A9C2383A75400ADDFF4 /* PostYoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E324A9A2383A75400ADDFF4 /* PostYoutubeCell.swift */; };
+		1E324A9D2383A75400ADDFF4 /* PostYoutubeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E324A9B2383A75400ADDFF4 /* PostYoutubeCell.xib */; };
 		1E354240237A7F9F00EE7C20 /* SocialLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */; };
 		533F0316F1BAB592B50F250B /* Pods_News_Feed_News_FeedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FFBBDE379B5EF9FB89F633 /* Pods_News_Feed_News_FeedUITests.framework */; };
 		C14837901C436B68FE925853 /* Pods_News_Feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C0A2F6EC081D312B7B9649 /* Pods_News_Feed.framework */; };
@@ -127,6 +129,8 @@
 		1E3221DD2375A5220033D214 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		1E3221DF2375BA6D0033D214 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1E3221E12375BAA20033D214 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		1E324A9A2383A75400ADDFF4 /* PostYoutubeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostYoutubeCell.swift; sourceTree = "<group>"; };
+		1E324A9B2383A75400ADDFF4 /* PostYoutubeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostYoutubeCell.xib; sourceTree = "<group>"; };
 		1E35423F237A7F9F00EE7C20 /* SocialLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginManager.swift; sourceTree = "<group>"; };
 		2824586C1AEAD6577C74DEB7 /* Pods-News_Feed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News_Feed.debug.xcconfig"; path = "Target Support Files/Pods-News_Feed/Pods-News_Feed.debug.xcconfig"; sourceTree = "<group>"; };
 		57FFBBDE379B5EF9FB89F633 /* Pods_News_Feed_News_FeedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Feed_News_FeedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +231,8 @@
 				18792FE0236F5857009ECCEA /* MusicCell.xib */,
 				184437AE2371F24C002868D4 /* PostWithLinkCell.swift */,
 				184437AF2371F24C002868D4 /* PostWithLinkCell.xib */,
+				1E324A9A2383A75400ADDFF4 /* PostYoutubeCell.swift */,
+				1E324A9B2383A75400ADDFF4 /* PostYoutubeCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 				18D89BF2235AFBAF003560ED /* Assets.xcassets in Resources */,
 				18D89C1B235B21E3003560ED /* NewsFeedCell.xib in Resources */,
 				18D89BED235AFBA8003560ED /* Main.storyboard in Resources */,
+				1E324A9D2383A75400ADDFF4 /* PostYoutubeCell.xib in Resources */,
 				1E2B6BB423791C1200612383 /* IntroImageSlider.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,6 +720,7 @@
 				1E3221E02375BA6D0033D214 /* LoginController.swift in Sources */,
 				1E2AD0A7237EBD0700D35A79 /* Function.swift in Sources */,
 				18436B99237F2CAB009B9246 /* ViewController.swift in Sources */,
+				1E324A9C2383A75400ADDFF4 /* PostYoutubeCell.swift in Sources */,
 				1E2B4347235EC5F4004A2F8F /* Get_News_FeedModel.swift in Sources */,
 				1E2486C42373E634002927CD /* RoundTextField.swift in Sources */,
 				1E2B4354235EDC05004A2F8F /* AlertExtension.swift in Sources */,

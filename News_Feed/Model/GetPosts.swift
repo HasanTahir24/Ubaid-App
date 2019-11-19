@@ -10,6 +10,7 @@ import UIKit
 import AlamofireImage
 import Kingfisher
 import SDWebImage
+import YouTubePlayer
 
 
 class GetPosts {
@@ -141,8 +142,8 @@ class GetPosts {
     
     static func getPostLink(tableView : UITableView, indexpath:IndexPath, postLink : String, array : [[String:Any]]) -> UITableViewCell {
         let index = array[indexpath.row]
-        tableView.rowHeight = 550
-        //        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+                tableView.estimatedRowHeight = UITableView.automaticDimension
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostLinkCell") as! PostWithLinkCell
         
         if let name = index["publisher"] as? [String:Any] {
@@ -180,6 +181,44 @@ class GetPosts {
         
         return cell
         
+    }
+    
+    static func  getPostYoutub(tableView : UITableView, indexpath:IndexPath, postLink : String, array : [[String:Any]]) -> UITableViewCell{
+      let index = array[indexpath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostYoutube") as! PostYoutubeCell
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        if let name = index["publisher"] as? [String:Any] {
+            if let profilename = name["name"] as? String{
+                cell.profileNAme.text! = profilename
+            }
+            if let avatarUrl =  name["avatar"] as? String {
+                let url = URL(string: avatarUrl)
+                cell.profileImage.kf.setImage(with: url)
+                
+            }
+        }
+        
+        if let time = index["post_time"] as? String{
+            cell.timeLabel.text! = time
+        }
+        
+        if let textStatus = index["postText"] as? String {
+            cell.statusLabel.text! = textStatus.htmlToString
+            
+        }
+        
+        if let youtubeLink = index["postYoutube"] as? String{
+            
+            cell.videoView.playerVars   = ["playsinline" : 1 as AnyObject]
+            cell.videoView.loadVideoID(youtubeLink)
+             
+            cell.videoView.play()
+        }
+        
+        
+        return cell
     }
     
     

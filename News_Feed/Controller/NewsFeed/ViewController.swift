@@ -41,9 +41,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: "NewsFeedCell")
-        tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "musicCell")
+        tableView.register(UINib(nibName: "MusicCell", bundle: nil),
+            forCellReuseIdentifier: "musicCell")
         tableView.register(UINib(nibName: "PostWithLinkCell", bundle: nil), forCellReuseIdentifier: "PostLinkCell")
-//        self.getNewsFeed(access_token: "?access_token=f86e0a1580afed8fba872189158964c62cd358812f0033500b23126db4ea2be3bf7c42e54305342331f81674a348511b990af268ca3a8391")
+        
+        tableView.register(UINib(nibName: "PostYoutubeCell", bundle: nil), forCellReuseIdentifier: "PostYoutube")
+
         self.getNewsFeed(access_token: "\("?")\("access_token")\("=")\(UserData.getAccess_Token()!)", limit: self.limit)
     }
     
@@ -82,11 +85,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         else  {
             let index = self.newsFeedArray[indexPath.row]
-            print("PrintIndex",index)
             //
             var tableViewCells = UITableViewCell()
             let postfile = index["postFile"] as? String ?? ""
             let postLink = index["postLink"] as? String ?? ""
+            let postYoutube = index["postYoutube"] as?String ?? ""
+            
             
             if postfile != ""  {
                 let url = URL(string: postfile)
@@ -101,15 +105,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     tableViewCells = GetPosts.getMP3(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
                     
                 }
-                else {
-                    tableViewCells = GetPosts.getPostText(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
-                }
+
             }
                 
             else if postLink != "" {
                 tableViewCells = GetPosts.getPostLink(tableView: tableView, indexpath: indexPath, postLink: postLink, array: self.newsFeedArray)
                 
             }
+            
+            else if postYoutube != "" {
+                
+                tableViewCells = GetPosts.getPostYoutub(tableView: tableView, indexpath: indexPath, postLink: postYoutube, array: self.newsFeedArray)
+            }
+            
+            else {
+                tableViewCells = GetPosts.getPostText(tableView: tableView, indexpath: indexPath, postFile: postfile, array: self.newsFeedArray)
+            }
+            
             //
             return tableViewCells
             

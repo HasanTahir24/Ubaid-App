@@ -16,8 +16,8 @@ target 'News_Feed' do
    pod 'Player'
 #   4.31.1
 #   '~> 4.35'
-    pod 'FBSDKCoreKit',  '~> 4.35'
-    pod 'FBSDKLoginKit',  '~> 4.35'
+    pod 'FBSDKCoreKit',  '~> 4.31.1'
+    pod 'FBSDKLoginKit',  '~> 4.31.1'
    pod 'IQKeyboardManager' #iOS8 and later
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
