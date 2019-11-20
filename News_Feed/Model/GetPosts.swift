@@ -19,8 +19,8 @@ class GetPosts {
     static func getPostImage(tableView : UITableView, indexpath:IndexPath, postFile : String, array : [[String:Any]], url : URL) -> UITableViewCell {
         let index = array[indexpath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
         cell.videoView.isHidden = true
         
         
@@ -49,9 +49,14 @@ class GetPosts {
                 DispatchQueue.main.async {
                     let ratio = image!.size.width / image!.size.height
                     let newHeight = cell.stausimage.frame.width / ratio
+                    let imageOldHeight = cell.stausimage.frame.height
+                    
                     cell.heigthConstraint.constant = newHeight
                     
                     cell.stausimage.frame.size = CGSize(width: cell.contentView.frame.width, height:cell.heigthConstraint.constant)
+                    let frame = cell.frame
+                    cell.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: frame.height - imageOldHeight + cell.stausimage.frame.size.height  )
+                    
                 }
                 
             }
@@ -74,8 +79,8 @@ class GetPosts {
         
         let index = array[indexpath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell") as! NewsFeedCell
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
         cell.videoView.isHidden = true
         cell.heigthConstraint.constant = 0
         
@@ -134,7 +139,7 @@ class GetPosts {
         }
         
         cell.loadMp3(url: postFile)
-        tableView.rowHeight = 200
+        //tableView.rowHeight = 200
         
         return cell
         
@@ -142,8 +147,8 @@ class GetPosts {
     
     static func getPostLink(tableView : UITableView, indexpath:IndexPath, postLink : String, array : [[String:Any]]) -> UITableViewCell {
         let index = array[indexpath.row]
-        tableView.rowHeight = UITableView.automaticDimension
-                tableView.estimatedRowHeight = UITableView.automaticDimension
+        //tableView.rowHeight = UITableView.automaticDimension
+                //tableView.estimatedRowHeight = UITableView.automaticDimension
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostLinkCell") as! PostWithLinkCell
         
         if let name = index["publisher"] as? [String:Any] {
@@ -187,8 +192,8 @@ class GetPosts {
       let index = array[indexpath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostYoutube") as! PostYoutubeCell
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = UITableView.automaticDimension
         if let name = index["publisher"] as? [String:Any] {
             if let profilename = name["name"] as? String{
                 cell.profileNAme.text! = profilename

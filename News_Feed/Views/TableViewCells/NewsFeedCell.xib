@@ -13,11 +13,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsFeedCell" rowHeight="574" id="KGk-i7-Jjw" customClass="NewsFeedCell" customModule="News_Feed" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="574"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="574"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JkG-Nd-Nv7">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JkG-Nd-Nv7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="572"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ubipro" translatesAutoresizingMaskIntoConstraints="NO" id="Z2T-K0-UHd" customClass="Roundimage" customModule="News_Feed" customModuleProvider="target">
@@ -49,8 +49,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJF-Tb-LEj">
-                                <rect key="frame" x="8" y="56" width="304" height="28.5"/>
+                                <rect key="frame" x="8" y="56" width="304" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="M4g-9K-MMO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,13 +66,13 @@
                                 <state key="normal" image="more"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ot0-z2-eaP">
-                                <rect key="frame" x="0.0" y="99.5" width="320" height="400"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="IIr-M5-aJa"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7t-EL-RlY">
-                                <rect key="frame" x="0.0" y="499.5" width="320" height="22"/>
+                                <rect key="frame" x="0.0" y="471" width="320" height="22"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9X-Pu-OvK">
                                         <rect key="frame" x="10" y="4" width="44.5" height="16"/>
@@ -94,14 +97,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzf-2P-HRl">
-                                <rect key="frame" x="8" y="521.5" width="304" height="0.5"/>
+                                <rect key="frame" x="8" y="493" width="304" height="0.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="U5h-z7-u6l"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wmd-xZ-EZI">
-                                <rect key="frame" x="0.0" y="522" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="493.5" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUI-Fv-pXH">
                                         <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
@@ -129,7 +132,7 @@
                                 <viewLayoutGuide key="safeArea" id="Uu3-MS-d3l"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mK3-E6-aV8">
-                                <rect key="frame" x="0.0" y="99.5" width="320" height="230"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="230"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="230" id="H6X-Vx-5e1"/>

@@ -25,7 +25,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //    var array = [datas]()
     var newsFeedArray = [[String:Any]]()
     var filterFeedArray = [[String:Any]]()
-    var limit = 10
+    var limit = 25
     let spinner = UIActivityIndicatorView(style: .gray)
 
     
@@ -152,20 +152,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        if indexPath.section  == 0 {
-    //            return 100
-    //        }
-    //        else{
-    //            return 414
-    ////           return UITableView.automaticDimension
-    ////            self.tableView.estimatedRowHeight = UITableView.automaticDimension
-    //
-    //
-    //
-    //        }
-    //
-    //    }
+        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            
+            return UITableView.automaticDimension
+        }
     //
     //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     //        if indexPath.section  == 0 {
